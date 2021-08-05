@@ -38,5 +38,10 @@ namespace Gerenciador_vitural_de_estoque
                 splitContainer1.SplitterDistance = 300;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
