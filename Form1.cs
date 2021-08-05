@@ -29,6 +29,11 @@ namespace Gerenciador_vitural_de_estoque
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void adjustLateralMenu()
+        {
             if (splitContainer1.SplitterDistance == 300)
             {
                 splitContainer1.SplitterDistance = 100;
@@ -43,5 +48,31 @@ namespace Gerenciador_vitural_de_estoque
         {
 
         }
+
+        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0112) // WM_SYSCOMMAND
+            {
+                // Check your window state here
+                if (m.WParam == new IntPtr(0xF030)) // Maximize event - SC_MAXIMIZE from Winuser.h
+                {
+                    // THe window is being maximized
+                    
+                    System.Diagnostics.Debug.WriteLine("Janela maximizada "+ splitContainer1.SplitterDistance);
+                 
+
+                }
+            }
+            base.WndProc(ref m);
+        }
+
     }
 }
