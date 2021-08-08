@@ -102,6 +102,7 @@ namespace Gerenciador_vitural_de_estoque
         {
             button1.BackgroundImage = null;
             button1.Text = "PRODUTOS";
+            button1Reduced = false;
         }
 
         #endregion
