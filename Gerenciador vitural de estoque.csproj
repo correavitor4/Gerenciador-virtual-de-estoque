@@ -82,5 +82,11 @@
   <ItemGroup>
     <None Include="Resources\hamburger+button-1324760585124590953.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_products.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_products_mouse_hover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

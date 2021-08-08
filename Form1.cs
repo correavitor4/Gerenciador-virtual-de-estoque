@@ -29,25 +29,13 @@ namespace Gerenciador_vitural_de_estoque
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+            reduceLateralMenu();
         }
 
-        private void adjustLateralMenu()
-        {
-            if (splitContainer1.SplitterDistance == 300)
-            {
-                splitContainer1.SplitterDistance = 100;
-            }
-            else
-            {
-                splitContainer1.SplitterDistance = 300;
-            }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
         
 
@@ -74,5 +62,84 @@ namespace Gerenciador_vitural_de_estoque
             base.WndProc(ref m);
         }
 
+
+        #region "lateralMenu" 
+
+        bool button1Reduced = false;
+
+        private void reduceLateralMenu()
+        {
+
+                //Verifica se o menu está em tamanho grande
+                if (splitContainer1.SplitterDistance == 300)
+                {
+                    
+                    splitContainer1.SplitterDistance = 75;
+                    reduceButton1();
+                    
+
+                }
+                else
+                {
+                    splitContainer1.SplitterDistance = 300;
+                    restoreButton1();
+                }
+
+            
+        }
+
+        private void reduceButton1()
+        {
+            button1.Text = "";
+            //Bitmap b = new Bitmap("Resources\icon_products.png");
+            var bmp = new Bitmap(Properties.Resources.icon_products);
+            button1.BackgroundImage =bmp;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1Reduced = true;
+        }
+
+        private void restoreButton1()
+        {
+            button1.BackgroundImage = null;
+            button1.Text = "PRODUTOS";
+        }
+
+        #endregion
+
+
+
+        #region "button 1 events"
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            if (button1Reduced)
+            {
+                var bmp = new Bitmap(Properties.Resources.icon_products_mouse_hover);
+                button1.BackgroundImage = bmp;
+            }
+            else
+            {
+                button1.BackColor = Color.FromArgb(93, 166, 166);
+            }
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            if (button1Reduced)
+            {
+                var bmp = new Bitmap(Properties.Resources.icon_products);
+                button1.BackgroundImage = bmp;
+            }
+            else
+            {
+                button1.BackColor = Color.FromArgb(10, 115, 115);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }
