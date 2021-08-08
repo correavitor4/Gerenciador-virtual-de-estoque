@@ -97,5 +97,8 @@
   <ItemGroup>
     <None Include="Resources\clients_icon_mouse_hover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\providers-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

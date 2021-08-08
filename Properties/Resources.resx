@@ -124,6 +124,9 @@
   <data name="hamburger+button-1324760585124590953" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hamburger+button-1324760585124590953.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="clients_icon_mouse_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clients_icon_mouse_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="store-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\store-icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="icon_products_mouse_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_products_mouse_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clients_icon_mouse_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clients_icon_mouse_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="providers-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\providers-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

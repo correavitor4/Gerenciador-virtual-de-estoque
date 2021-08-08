@@ -123,6 +123,16 @@ namespace Gerenciador_vitural_de_estoque.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap providers_icon {
+            get {
+                object obj = ResourceManager.GetObject("providers-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap store_icon {
             get {
                 object obj = ResourceManager.GetObject("store-icon", resourceCulture);
