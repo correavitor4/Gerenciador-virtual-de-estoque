@@ -63,6 +63,26 @@ namespace Gerenciador_vitural_de_estoque.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clients_icon {
+            get {
+                object obj = ResourceManager.GetObject("clients-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clients_icon_mouse_hover {
+            get {
+                object obj = ResourceManager.GetObject("clients_icon_mouse_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hamburger_button_1324760585124590953 {
             get {
                 object obj = ResourceManager.GetObject("hamburger+button-1324760585124590953", resourceCulture);
@@ -86,6 +106,16 @@ namespace Gerenciador_vitural_de_estoque.Properties {
         internal static System.Drawing.Bitmap icon_products_mouse_hover {
             get {
                 object obj = ResourceManager.GetObject("icon_products_mouse_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_products_mouse_hover1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_products_mouse_hover1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

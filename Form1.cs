@@ -67,6 +67,7 @@ namespace Gerenciador_vitural_de_estoque
 
         bool button1Reduced = false;
         bool button2Reduced = false;
+        bool button3Reduced = false;
 
         private void reduceLateralMenu()
         {
@@ -78,6 +79,7 @@ namespace Gerenciador_vitural_de_estoque
                     splitContainer1.SplitterDistance = 75;
                     reduceButton1();
                     reduceButton2();
+                    reduceButton3();
 
                 }
                 else
@@ -85,6 +87,7 @@ namespace Gerenciador_vitural_de_estoque
                     splitContainer1.SplitterDistance = 300;
                     restoreButton1();
                     restoreButton2();
+                    restoreButton3();
                 }
 
             
@@ -124,6 +127,24 @@ namespace Gerenciador_vitural_de_estoque
             button2Reduced = false;
         }
 
+
+        private void reduceButton3()
+        {
+            button3.Text = "";
+            //Bitmap b = new Bitmap("Resources\icon_products.png");
+            var bmp = new Bitmap(Properties.Resources.clients_icon);
+            button3.BackgroundImage = bmp;
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
+            button3Reduced = true;
+        }
+
+        private void restoreButton3()
+        {
+            button3.BackgroundImage = null;
+            button3.Text = "CLIENTES";
+            button3Reduced = false;
+        }
+
         #endregion
 
 
@@ -160,6 +181,35 @@ namespace Gerenciador_vitural_de_estoque
 
         }
 
+        #endregion
+
+
+        #region "button 3 events"
+        private void button3_MouseHover(object sender, EventArgs e)
+        {
+            if (button3Reduced)
+            {
+                var bmp = new Bitmap(Properties.Resources.clients_icon_mouse_hover);
+                button3.BackgroundImage = bmp;
+            }
+            else
+            {
+                button3.BackColor = Color.FromArgb(93, 166, 166);
+            }
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            if (button3Reduced)
+            {
+                var bmp = new Bitmap(Properties.Resources.clients_icon);
+                button3.BackgroundImage = bmp;
+            }
+            else
+            {
+                button3.BackColor = Color.FromArgb(10, 115, 115);
+            }
+        }
         #endregion
     }
 }
