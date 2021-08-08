@@ -66,6 +66,7 @@ namespace Gerenciador_vitural_de_estoque
         #region "lateralMenu" 
 
         bool button1Reduced = false;
+        bool button2Reduced = false;
 
         private void reduceLateralMenu()
         {
@@ -76,13 +77,14 @@ namespace Gerenciador_vitural_de_estoque
                     
                     splitContainer1.SplitterDistance = 75;
                     reduceButton1();
-                    
+                    reduceButton2();
 
                 }
                 else
                 {
                     splitContainer1.SplitterDistance = 300;
                     restoreButton1();
+                    restoreButton2();
                 }
 
             
@@ -103,6 +105,23 @@ namespace Gerenciador_vitural_de_estoque
             button1.BackgroundImage = null;
             button1.Text = "PRODUTOS";
             button1Reduced = false;
+        }
+
+        private void reduceButton2()
+        {
+            button2.Text = "";
+            //Bitmap b = new Bitmap("Resources\icon_products.png");
+            var bmp = new Bitmap(Properties.Resources.store_icon);
+            button2.BackgroundImage = bmp;
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2Reduced = true;
+        }
+
+        private void restoreButton2()
+        {
+            button2.BackgroundImage = null;
+            button2.Text = "VENDAS";
+            button2Reduced = false;
         }
 
         #endregion
