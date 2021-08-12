@@ -18,7 +18,7 @@ namespace Gerenciador_vitural_de_estoque
         public Form2()
         {
             InitializeComponent();
-            
+            loadListViewItems();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,8 +33,15 @@ namespace Gerenciador_vitural_de_estoque
 
         private void loadListViewItems()
         {
-            
-            
+            ConsultValues consult = new ConsultValues("Products");
+
+            /*foreach(var item in consult.namesAr)
+            {
+                System.Diagnostics.Debug.WriteLine(item);
+            }*/
+
+            System.Diagnostics.Debug.WriteLine(consult.getMessage());
+
         }
 
         

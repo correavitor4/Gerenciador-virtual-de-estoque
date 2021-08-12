@@ -34,7 +34,7 @@ namespace Gerenciador_vitural_de_estoque
             //verifica se a conexão está aberta
             if (connection.State == System.Data.ConnectionState.Open)
             {
-                connection.Close();
+                connection.Open();
             }
         }
 
