@@ -14,7 +14,7 @@ namespace Gerenciador_vitural_de_estoque
         //CONSTRUTOR
         public ConnectionDB()
         {
-            connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C: \\Users\\corre\\source\repos\\Gerenciador -virtual-de-estoque\\Database1.mdf;Integrated Security = True";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\corre\source\repos\Gerenciador-virtual-de-estoque\Database1.mdf;Integrated Security=True";
         }
         //MÉTODO DE CONEXÃO 
 
@@ -31,11 +31,7 @@ namespace Gerenciador_vitural_de_estoque
         //MÉTODO DE DESCONEXÃO
         public void disconnect()
         {
-            //verifica se a conexão está aberta
-            if (connection.State == System.Data.ConnectionState.Open)
-            {
-                connection.Open();
-            }
+
         }
 
     }

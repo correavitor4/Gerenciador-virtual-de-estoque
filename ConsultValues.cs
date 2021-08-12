@@ -32,10 +32,10 @@ namespace Gerenciador_vitural_de_estoque
            
 
             //COMANDO SQL
-            cmd.CommandText = "select * from @tabela";
+            cmd.CommandText = String.Format("SELECT nome_produto,data_criacao,quantidade,unidade FROM [{0}]",nomeTabela);
 
             //PARÂMETROS
-            cmd.Parameters.AddWithValue("@tabela",nomeTabela);
+            //cmd.Parameters.AddWithValue("@tabela",nomeTabela);
 
             //CONECTAR COM O BANCO
 
@@ -57,7 +57,7 @@ namespace Gerenciador_vitural_de_estoque
                 }
 
                 this.namesAr = names.ToArray();
-                this.quantidadeAr = quantidadeAr.ToArray();
+                this.quantidadeAr = quantidade.ToArray();
                 this.unidadeAr = unidade.ToArray();
                 this.data_criacaoAr = data_criacao.ToArray();
 

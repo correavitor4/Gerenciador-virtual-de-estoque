@@ -24,7 +24,7 @@ namespace Gerenciador_vitural_de_estoque {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class Database1DataSet : global::System.Data.DataSet {
         
-        private ProductsDataTable tableProducts;
+        private TableDataTable tableTable;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace Gerenciador_vitural_de_estoque {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Products"] != null)) {
-                    base.Tables.Add(new ProductsDataTable(ds.Tables["Products"]));
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new TableDataTable(ds.Tables["Table"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Gerenciador_vitural_de_estoque {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ProductsDataTable Products {
+        public TableDataTable Table {
             get {
-                return this.tableProducts;
+                return this.tableTable;
             }
         }
         
@@ -152,8 +152,8 @@ namespace Gerenciador_vitural_de_estoque {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Products"] != null)) {
-                    base.Tables.Add(new ProductsDataTable(ds.Tables["Products"]));
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new TableDataTable(ds.Tables["Table"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Gerenciador_vitural_de_estoque {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableProducts = ((ProductsDataTable)(base.Tables["Products"]));
+            this.tableTable = ((TableDataTable)(base.Tables["Table"]));
             if ((initTable == true)) {
-                if ((this.tableProducts != null)) {
-                    this.tableProducts.InitVars();
+                if ((this.tableTable != null)) {
+                    this.tableTable.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Gerenciador_vitural_de_estoque {
             this.Namespace = "http://tempuri.org/Database1DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableProducts = new ProductsDataTable();
-            base.Tables.Add(this.tableProducts);
+            this.tableTable = new TableDataTable();
+            base.Tables.Add(this.tableTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeProducts() {
+        private bool ShouldSerializeTable() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace Gerenciador_vitural_de_estoque {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void ProductsRowChangeEventHandler(object sender, ProductsRowChangeEvent e);
+        public delegate void TableRowChangeEventHandler(object sender, TableRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ProductsDataTable : global::System.Data.TypedTableBase<ProductsRow> {
+        public partial class TableDataTable : global::System.Data.TypedTableBase<TableRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -291,8 +291,8 @@ namespace Gerenciador_vitural_de_estoque {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsDataTable() {
-                this.TableName = "Products";
+            public TableDataTable() {
+                this.TableName = "Table";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +300,7 @@ namespace Gerenciador_vitural_de_estoque {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ProductsDataTable(global::System.Data.DataTable table) {
+            internal TableDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +317,7 @@ namespace Gerenciador_vitural_de_estoque {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected ProductsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -373,56 +373,56 @@ namespace Gerenciador_vitural_de_estoque {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRow this[int index] {
+            public TableRow this[int index] {
                 get {
-                    return ((ProductsRow)(this.Rows[index]));
+                    return ((TableRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ProductsRowChangeEventHandler ProductsRowChanging;
+            public event TableRowChangeEventHandler TableRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ProductsRowChangeEventHandler ProductsRowChanged;
+            public event TableRowChangeEventHandler TableRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ProductsRowChangeEventHandler ProductsRowDeleting;
+            public event TableRowChangeEventHandler TableRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ProductsRowChangeEventHandler ProductsRowDeleted;
+            public event TableRowChangeEventHandler TableRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddProductsRow(ProductsRow row) {
+            public void AddTableRow(TableRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRow AddProductsRow(int Id, string nome_produto, byte[] data_criacao, decimal quantidade, string unidade) {
-                ProductsRow rowProductsRow = ((ProductsRow)(this.NewRow()));
+            public TableRow AddTableRow(int Id, string nome_produto, byte[] data_criacao, decimal quantidade, string unidade) {
+                TableRow rowTableRow = ((TableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         nome_produto,
                         data_criacao,
                         quantidade,
                         unidade};
-                rowProductsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowProductsRow);
-                return rowProductsRow;
+                rowTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTableRow);
+                return rowTableRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRow FindById(int Id) {
-                return ((ProductsRow)(this.Rows.Find(new object[] {
+            public TableRow FindById(int Id) {
+                return ((TableRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ProductsDataTable cln = ((ProductsDataTable)(base.Clone()));
+                TableDataTable cln = ((TableDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -430,7 +430,7 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ProductsDataTable();
+                return new TableDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -466,32 +466,39 @@ namespace Gerenciador_vitural_de_estoque {
                 this.columnquantidade.AllowDBNull = false;
                 this.columnunidade.AllowDBNull = false;
                 this.columnunidade.MaxLength = 10;
+                this.ExtendedProperties.Add("Generator_RowClassName", "TableRow");
+                this.ExtendedProperties.Add("Generator_RowEvArgName", "TableRowChangeEvent");
+                this.ExtendedProperties.Add("Generator_RowEvHandlerName", "TableRowChangeEventHandler");
+                this.ExtendedProperties.Add("Generator_TableClassName", "TableDataTable");
+                this.ExtendedProperties.Add("Generator_TablePropName", "Table");
+                this.ExtendedProperties.Add("Generator_TableVarName", "tableTable");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Table");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRow NewProductsRow() {
-                return ((ProductsRow)(this.NewRow()));
+            public TableRow NewTableRow() {
+                return ((TableRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ProductsRow(builder);
+                return new TableRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ProductsRow);
+                return typeof(TableRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ProductsRowChanged != null)) {
-                    this.ProductsRowChanged(this, new ProductsRowChangeEvent(((ProductsRow)(e.Row)), e.Action));
+                if ((this.TableRowChanged != null)) {
+                    this.TableRowChanged(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
                 }
             }
             
@@ -499,8 +506,8 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ProductsRowChanging != null)) {
-                    this.ProductsRowChanging(this, new ProductsRowChangeEvent(((ProductsRow)(e.Row)), e.Action));
+                if ((this.TableRowChanging != null)) {
+                    this.TableRowChanging(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
                 }
             }
             
@@ -508,8 +515,8 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ProductsRowDeleted != null)) {
-                    this.ProductsRowDeleted(this, new ProductsRowChangeEvent(((ProductsRow)(e.Row)), e.Action));
+                if ((this.TableRowDeleted != null)) {
+                    this.TableRowDeleted(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
                 }
             }
             
@@ -517,14 +524,14 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ProductsRowDeleting != null)) {
-                    this.ProductsRowDeleting(this, new ProductsRowChangeEvent(((ProductsRow)(e.Row)), e.Action));
+                if ((this.TableRowDeleting != null)) {
+                    this.TableRowDeleting(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveProductsRow(ProductsRow row) {
+            public void RemoveTableRow(TableRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -551,7 +558,7 @@ namespace Gerenciador_vitural_de_estoque {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ProductsDataTable";
+                attribute2.FixedValue = "TableDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -595,25 +602,25 @@ namespace Gerenciador_vitural_de_estoque {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ProductsRow : global::System.Data.DataRow {
+        public partial class TableRow : global::System.Data.DataRow {
             
-            private ProductsDataTable tableProducts;
+            private TableDataTable tableTable;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ProductsRow(global::System.Data.DataRowBuilder rb) : 
+            internal TableRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableProducts = ((ProductsDataTable)(this.Table));
+                this.tableTable = ((TableDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tableProducts.IdColumn]));
+                    return ((int)(this[this.tableTable.IdColumn]));
                 }
                 set {
-                    this[this.tableProducts.IdColumn] = value;
+                    this[this.tableTable.IdColumn] = value;
                 }
             }
             
@@ -621,10 +628,10 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string nome_produto {
                 get {
-                    return ((string)(this[this.tableProducts.nome_produtoColumn]));
+                    return ((string)(this[this.tableTable.nome_produtoColumn]));
                 }
                 set {
-                    this[this.tableProducts.nome_produtoColumn] = value;
+                    this[this.tableTable.nome_produtoColumn] = value;
                 }
             }
             
@@ -633,14 +640,14 @@ namespace Gerenciador_vitural_de_estoque {
             public byte[] data_criacao {
                 get {
                     try {
-                        return ((byte[])(this[this.tableProducts.data_criacaoColumn]));
+                        return ((byte[])(this[this.tableTable.data_criacaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'data_criacao\' na tabela \'Products\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'data_criacao\' na tabela \'Table\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableProducts.data_criacaoColumn] = value;
+                    this[this.tableTable.data_criacaoColumn] = value;
                 }
             }
             
@@ -648,10 +655,10 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal quantidade {
                 get {
-                    return ((decimal)(this[this.tableProducts.quantidadeColumn]));
+                    return ((decimal)(this[this.tableTable.quantidadeColumn]));
                 }
                 set {
-                    this[this.tableProducts.quantidadeColumn] = value;
+                    this[this.tableTable.quantidadeColumn] = value;
                 }
             }
             
@@ -659,23 +666,23 @@ namespace Gerenciador_vitural_de_estoque {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string unidade {
                 get {
-                    return ((string)(this[this.tableProducts.unidadeColumn]));
+                    return ((string)(this[this.tableTable.unidadeColumn]));
                 }
                 set {
-                    this[this.tableProducts.unidadeColumn] = value;
+                    this[this.tableTable.unidadeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isdata_criacaoNull() {
-                return this.IsNull(this.tableProducts.data_criacaoColumn);
+                return this.IsNull(this.tableTable.data_criacaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setdata_criacaoNull() {
-                this[this.tableProducts.data_criacaoColumn] = global::System.Convert.DBNull;
+                this[this.tableTable.data_criacaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -683,22 +690,22 @@ namespace Gerenciador_vitural_de_estoque {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class ProductsRowChangeEvent : global::System.EventArgs {
+        public class TableRowChangeEvent : global::System.EventArgs {
             
-            private ProductsRow eventRow;
+            private TableRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRowChangeEvent(ProductsRow row, global::System.Data.DataRowAction action) {
+            public TableRowChangeEvent(TableRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRow Row {
+            public TableRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -726,7 +733,7 @@ namespace Gerenciador_vitural_de_estoque.Database1DataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ProductsTableAdapter : global::System.ComponentModel.Component {
+    public partial class TableTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -740,7 +747,7 @@ namespace Gerenciador_vitural_de_estoque.Database1DataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ProductsTableAdapter() {
+        public TableTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -837,7 +844,7 @@ namespace Gerenciador_vitural_de_estoque.Database1DataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Products";
+            tableMapping.DataSetTable = "Table";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("nome_produto", "nome_produto");
             tableMapping.ColumnMappings.Add("data_criacao", "data_criacao");
@@ -884,22 +891,18 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM dbo.[Table]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM dbo.[Table]";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database1DataSet.ProductsDataTable dataTable) {
+        public virtual int Fill(Database1DataSet.TableDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -912,9 +915,9 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database1DataSet.ProductsDataTable GetData() {
+        public virtual Database1DataSet.TableDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database1DataSet.ProductsDataTable dataTable = new Database1DataSet.ProductsDataTable();
+            Database1DataSet.TableDataTable dataTable = new Database1DataSet.TableDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -922,31 +925,7 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(Database1DataSet.ProductsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Database1DataSet.ProductsDataTable GetDataBy() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            Database1DataSet.ProductsDataTable dataTable = new Database1DataSet.ProductsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database1DataSet.ProductsDataTable dataTable) {
+        public virtual int Update(Database1DataSet.TableDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -954,7 +933,7 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Database1DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Products");
+            return this.Adapter.Update(dataSet, "Table");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1098,7 +1077,7 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         
         private UpdateOrderOption _updateOrder;
         
-        private ProductsTableAdapter _productsTableAdapter;
+        private TableTableAdapter _tableTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1120,12 +1099,12 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ProductsTableAdapter ProductsTableAdapter {
+        public TableTableAdapter TableTableAdapter {
             get {
-                return this._productsTableAdapter;
+                return this._tableTableAdapter;
             }
             set {
-                this._productsTableAdapter = value;
+                this._tableTableAdapter = value;
             }
         }
         
@@ -1148,9 +1127,9 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._productsTableAdapter != null) 
-                            && (this._productsTableAdapter.Connection != null))) {
-                    return this._productsTableAdapter.Connection;
+                if (((this._tableTableAdapter != null) 
+                            && (this._tableTableAdapter.Connection != null))) {
+                    return this._tableTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1165,7 +1144,7 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._productsTableAdapter != null)) {
+                if ((this._tableTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1179,12 +1158,12 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(Database1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tableTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(updatedRows));
+                    result = (result + this._tableTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1198,11 +1177,11 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(Database1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tableTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(addedRows));
+                    result = (result + this._tableTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1216,11 +1195,11 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(Database1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tableTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(deletedRows));
+                    result = (result + this._tableTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1263,8 +1242,8 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._productsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._productsTableAdapter.Connection) == false))) {
+            if (((this._tableTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tableTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
                         "cadeia de conexão.");
             }
@@ -1300,13 +1279,13 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._productsTableAdapter != null)) {
-                    revertConnections.Add(this._productsTableAdapter, this._productsTableAdapter.Connection);
-                    this._productsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._productsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._productsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._productsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._productsTableAdapter.Adapter);
+                if ((this._tableTableAdapter != null)) {
+                    revertConnections.Add(this._tableTableAdapter, this._tableTableAdapter.Connection);
+                    this._tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tableTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tableTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tableTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tableTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1367,9 +1346,9 @@ SELECT Id, nome_produto, data_criacao, quantidade, unidade FROM [Table] WHERE (I
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._productsTableAdapter != null)) {
-                    this._productsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._productsTableAdapter]));
-                    this._productsTableAdapter.Transaction = null;
+                if ((this._tableTableAdapter != null)) {
+                    this._tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tableTableAdapter]));
+                    this._tableTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -33,12 +33,9 @@ namespace Gerenciador_vitural_de_estoque
 
         private void loadListViewItems()
         {
-            ConsultValues consult = new ConsultValues("Products");
+            ConsultValues consult = new ConsultValues("Table");
 
-            /*foreach(var item in consult.namesAr)
-            {
-                System.Diagnostics.Debug.WriteLine(item);
-            }*/
+            
 
             System.Diagnostics.Debug.WriteLine(consult.getMessage());
 
