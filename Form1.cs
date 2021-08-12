@@ -12,9 +12,13 @@ namespace Gerenciador_vitural_de_estoque
 {
     public partial class Form1 : Form
     {
+
+
+
         public Form1()
         {
             InitializeComponent();
+            openFormulary(new Form2());
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -232,5 +236,22 @@ namespace Gerenciador_vitural_de_estoque
             }
         }
         #endregion
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void openFormulary(object formulary)
+        {
+            splitContainer1.Panel2.Controls.RemoveAt(0);
+            Form f = formulary as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Add(f);
+            splitContainer1.Panel2.Tag = f;
+            f.Show();
+        }
     }
 }
