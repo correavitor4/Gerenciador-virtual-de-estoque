@@ -245,13 +245,23 @@ namespace Gerenciador_vitural_de_estoque
 
         private void openFormulary(object formulary)
         {
-            splitContainer1.Panel2.Controls.RemoveAt(0);
+            if (splitContainer2.Panel2.Controls.Count > 0)
+            {
+                splitContainer2.Panel2.Controls.RemoveAt(0);
+            }
+            
             Form f = formulary as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
-            splitContainer1.Panel2.Controls.Add(f);
-            splitContainer1.Panel2.Tag = f;
+            splitContainer2.Panel2.Controls.Add(f);
+            splitContainer2.Panel2.Tag = f;
             f.Show();
+            
+        }
+
+        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
