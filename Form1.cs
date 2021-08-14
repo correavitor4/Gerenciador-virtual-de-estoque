@@ -49,6 +49,7 @@ namespace Gerenciador_vitural_de_estoque
         }
 
 
+        #region "maximizar"
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0x0112) // WM_SYSCOMMAND
@@ -57,14 +58,16 @@ namespace Gerenciador_vitural_de_estoque
                 if (m.WParam == new IntPtr(0xF030)) // Maximize event - SC_MAXIMIZE from Winuser.h
                 {
                     // THe window is being maximized
+                   
+                
                     
-                    System.Diagnostics.Debug.WriteLine("Janela maximizada "+ splitContainer1.SplitterDistance);
-                 
 
                 }
             }
             base.WndProc(ref m);
         }
+
+        #endregion
 
 
         #region "lateralMenu" 
@@ -253,9 +256,13 @@ namespace Gerenciador_vitural_de_estoque
             Form f = formulary as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
+            f.TopMost = true;
+            
+
             splitContainer2.Panel2.Controls.Add(f);
             splitContainer2.Panel2.Tag = f;
             f.Show();
+            
             
         }
 
