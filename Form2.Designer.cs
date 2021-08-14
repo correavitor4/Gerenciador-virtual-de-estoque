@@ -35,6 +35,8 @@ namespace Gerenciador_vitural_de_estoque
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +83,9 @@ namespace Gerenciador_vitural_de_estoque
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
@@ -101,6 +105,16 @@ namespace Gerenciador_vitural_de_estoque
             // 
             this.columnHeader2.Text = "Quantidade";
             this.columnHeader2.Width = 70;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Unidade";
+            this.columnHeader3.Width = 103;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Data de criação";
+            this.columnHeader4.Width = 130;
             // 
             // Form2
             // 
@@ -128,5 +142,7 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

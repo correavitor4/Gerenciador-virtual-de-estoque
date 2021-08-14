@@ -67,7 +67,7 @@ namespace Gerenciador_vitural_de_estoque
 
                 
 
-                this.message = "Cadastrado com sucesso!!";
+                this.message = "Consulta ao banco efetuada com sucesso!!";
 
             }
 
