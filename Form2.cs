@@ -13,12 +13,15 @@ namespace Gerenciador_vitural_de_estoque
 {
     public partial class Form2 : Form
     {
-        
+
+
+        ConsultValues consult = new ConsultValues("Table");
 
         public Form2()
         {
             InitializeComponent();
             loadListViewItems();
+            listBox1.Text = null;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void loadListViewItems()
         {
-            ConsultValues consult = new ConsultValues("Table");
+            
 
 
             for(var i = 0; i < consult.namesAr.Length; i++)
@@ -107,8 +110,76 @@ namespace Gerenciador_vitural_de_estoque
 
         }
 
-        
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
-        
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           
+            if (string.IsNullOrEmpty(textBox1.Text) == false)
+            {
+                
+                for (var i = 0; i < this.consult.namesAr.Length; i++)
+                {
+                    updateListBox();
+                    
+                    if (consult.namesAr[i].StartsWith(textBox1.Text,StringComparison.CurrentCultureIgnoreCase) && !existsInListBox1(consult.namesAr[i])){
+                        listBox1.Items.Add(consult.namesAr[i]);
+                    }
+
+                }
+            }
+
+            else
+            {
+                updateListBox();
+                for (var i = 0; i < listBox1.Items.Count; i++)
+                {
+                    listBox1.Items.Remove(listBox1.Items[i]);
+                }
+                System.Diagnostics.Debug.WriteLine(listBox1.Items.Count);
+            }
+        }
+
+        private bool existsInListBox1(string word)
+        {
+            
+            for(var i = 0; i < listBox1.Items.Count; i++)
+            {
+                if (word.ToString() == listBox1.Items[i].ToString())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool startsWithInListBox(string word)
+        {
+            if (word.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase)){
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        private void updateListBox()
+        {
+
+            //startsWithInListBox(textBox1.Text);
+            for(var i = 0; i < listBox1.Items.Count; i++)
+            {
+                if (!startsWithInListBox(listBox1.Items[i].ToString()))
+                {
+                    listBox1.Items.Remove(listBox1.Items[i]);
+                }
+                
+            }
+        }
     }
 }
