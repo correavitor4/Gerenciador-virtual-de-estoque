@@ -14,7 +14,7 @@ namespace Gerenciador_vitural_de_estoque
     public partial class Form2 : Form
     {
 
-
+        //instancia classe de Consultar Valores
         ConsultValues consult = new ConsultValues("Table");
 
         public Form2()
@@ -34,7 +34,7 @@ namespace Gerenciador_vitural_de_estoque
 
         }
 
-
+        //Carrega lista do listView
         private void loadListViewItems()
         {
             
@@ -114,7 +114,7 @@ namespace Gerenciador_vitural_de_estoque
         {
 
         }
-
+        #region 'textBox1 e listBox1'
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
            
@@ -139,7 +139,10 @@ namespace Gerenciador_vitural_de_estoque
                 {
                     listBox1.Items.Remove(listBox1.Items[i]);
                 }
-                System.Diagnostics.Debug.WriteLine(listBox1.Items.Count);
+                //Não me pergunte o porquê dessa linha
+                listBox1.Items.Remove(listBox1.Items[0]);
+                
+               
             }
         }
 
@@ -181,5 +184,6 @@ namespace Gerenciador_vitural_de_estoque
                 
             }
         }
+        #endregion
     }
 }
