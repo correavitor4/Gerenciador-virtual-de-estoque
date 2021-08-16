@@ -184,6 +184,19 @@ namespace Gerenciador_vitural_de_estoque
                 
             }
         }
+
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                string itemSelecionado = listBox1.SelectedItem.ToString();
+                
+            }
+
+        }
         #endregion
+
+
     }
 }
