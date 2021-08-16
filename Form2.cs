@@ -185,7 +185,6 @@ namespace Gerenciador_vitural_de_estoque
             }
         }
 
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem != null)
@@ -195,8 +194,15 @@ namespace Gerenciador_vitural_de_estoque
             }
 
         }
+
         #endregion
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form f = new Form3();
+            f.Show();
+        }
 
+        
     }
 }
