@@ -37,11 +37,6 @@ namespace Gerenciador_vitural_de_estoque
         }
 
 
-        
-
-        
-
-        
 
         private void button2_Click(object sender, EventArgs e)
         {
