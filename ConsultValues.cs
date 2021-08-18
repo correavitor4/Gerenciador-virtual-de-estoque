@@ -11,6 +11,7 @@ namespace Gerenciador_vitural_de_estoque
     
     public class ConsultValues
     {
+        //Necessário para consulta na tabela Table (produtos)
         List<string> names = new List<string>();
         List<string> quantidade = new List<string>();
         List<string> unidade = new List<string>();
@@ -20,19 +21,32 @@ namespace Gerenciador_vitural_de_estoque
         public string[] unidadeAr;
         public string[] data_criacaoAr;
 
+
+
+        //Necessário para consulta na tabela operations
+        List<string> tipoOperacaoList = new List<string>();
+        List<string> descricaoList = new List<string>();
+        List<string> dataOperacaoList = new List<string>();
+        List<string> relatorioList = new List<string>();
+        public string[] tipoOperacao;
+        public string[] descricao;
+        public string[] dataOperacao;
+        public string[] relatorio;
+
+
         ConnectionDB conn = new ConnectionDB();
         //comando em forma de texto
         SqlCommand cmd = new SqlCommand();
 
-        private string message= "";
+        private string message = "";
 
         public ConsultValues(string nomeTabela)
         {
 
-           
+
 
             //COMANDO SQL
-            cmd.CommandText = String.Format("SELECT nome_produto,data_criacao,quantidade,unidade FROM [{0}]",nomeTabela);
+            cmd.CommandText = String.Format("SELECT nome_produto,data_criacao,quantidade,unidade FROM [{0}]", nomeTabela);
 
             //PARÂMETROS
             //cmd.Parameters.AddWithValue("@tabela",nomeTabela);
@@ -44,36 +58,46 @@ namespace Gerenciador_vitural_de_estoque
                 //Recebe o endereço do banco de dados onde quero executar
                 cmd.Connection = conn.connect();
                 //executar comando
-                SqlDataReader reader= cmd.ExecuteReader();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                //salva em um array
-                while (reader.Read())
+                if (nomeTabela == "Table")
                 {
-                    names.Add(Convert.ToString(reader["nome_produto"]));
-                    quantidade.Add(Convert.ToString(reader["quantidade"]));
-                    data_criacao.Add(Convert.ToString(reader["data_criacao"]));
-                    unidade.Add(Convert.ToString(reader["unidade"]));
+                    //salva em um array
+                    while (reader.Read())
+                    {
+                        names.Add(Convert.ToString(reader["nome_produto"]));
+                        quantidade.Add(Convert.ToString(reader["quantidade"]));
+                        data_criacao.Add(Convert.ToString(reader["data_criacao"]));
+                        unidade.Add(Convert.ToString(reader["unidade"]));
+
+                    }
+
+                    this.namesAr = names.ToArray();
+                    this.quantidadeAr = quantidade.ToArray();
+                    this.unidadeAr = unidade.ToArray();
+                    this.data_criacaoAr = data_criacao.ToArray();
+
+                }
+                else if (nomeTabela == "operations")
+                {
 
                 }
 
-                this.namesAr = names.ToArray();
-                this.quantidadeAr = quantidade.ToArray();
-                this.unidadeAr = unidade.ToArray();
-                this.data_criacaoAr = data_criacao.ToArray();
+
 
 
                 //desconectar do banco
                 conn.disconnect();
 
-                
+
 
                 this.message = "Consulta ao banco efetuada com sucesso!!";
 
             }
 
-            catch(SqlException e)
+            catch (SqlException e)
             {
-                this.message = "Erro ao tentar de conectar ao banco de dados: "+e;
+                this.message = "Erro ao tentar de conectar ao banco de dados: " + e;
             }
         }
 
@@ -81,7 +105,9 @@ namespace Gerenciador_vitural_de_estoque
         {
             return this.message;
         }
+    };
+       
 
 
-    }
+    
 }
