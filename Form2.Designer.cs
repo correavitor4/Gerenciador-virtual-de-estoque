@@ -47,6 +47,8 @@ namespace Gerenciador_vitural_de_estoque
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -193,7 +195,9 @@ namespace Gerenciador_vitural_de_estoque
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(0, 0);
@@ -202,21 +206,22 @@ namespace Gerenciador_vitural_de_estoque
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Produto";
-            this.columnHeader5.Width = 217;
+            this.columnHeader5.Width = 90;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Operação feita";
-            this.columnHeader6.Width = 236;
+            this.columnHeader6.Width = 99;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Data operação ";
-            this.columnHeader7.Width = 438;
+            this.columnHeader7.Text = "Descrição";
+            this.columnHeader7.Width = 120;
             // 
             // directorySearcher1
             // 
@@ -229,6 +234,14 @@ namespace Gerenciador_vitural_de_estoque
             this.directorySearcher2.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "data da operação";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "relatório";
             // 
             // Form2
             // 
@@ -276,5 +289,7 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

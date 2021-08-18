@@ -12,10 +12,12 @@ namespace Gerenciador_vitural_de_estoque
     public class ConsultValues
     {
         //Necessário para consulta na tabela Table (produtos)
+        List<int> IdProductList = new List<int>();
         List<string> names = new List<string>();
         List<string> quantidade = new List<string>();
         List<string> unidade = new List<string>();
         List<string> data_criacao = new List<string>();
+        public int[] IdProduct;
         public string[] namesAr;
         public string[] quantidadeAr;
         public string[] unidadeAr;
@@ -24,10 +26,12 @@ namespace Gerenciador_vitural_de_estoque
 
 
         //Necessário para consulta na tabela operations
+        List<int> fkProductList = new List<int>();
         List<string> tipoOperacaoList = new List<string>();
         List<string> descricaoList = new List<string>();
         List<string> dataOperacaoList = new List<string>();
         List<string> relatorioList = new List<string>();
+        public int[] fkProduct;
         public string[] tipoOperacao;
         public string[] descricao;
         public string[] dataOperacao;
@@ -45,8 +49,7 @@ namespace Gerenciador_vitural_de_estoque
 
 
 
-            //COMANDO SQL
-            cmd.CommandText = String.Format("SELECT nome_produto,data_criacao,quantidade,unidade FROM [{0}]", nomeTabela);
+            
 
             //PARÂMETROS
             //cmd.Parameters.AddWithValue("@tabela",nomeTabela);
@@ -57,14 +60,20 @@ namespace Gerenciador_vitural_de_estoque
             {
                 //Recebe o endereço do banco de dados onde quero executar
                 cmd.Connection = conn.connect();
-                //executar comando
-                SqlDataReader reader = cmd.ExecuteReader();
+                
+                
 
                 if (nomeTabela == "Table")
                 {
-                    //salva em um array
+                    //COMANDO SQL
+                    cmd.CommandText = String.Format("SELECT * FROM [{0}]", nomeTabela);
+                    
+                    //Executa comando 
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    
                     while (reader.Read())
                     {
+                        IdProductList.Add(int.Parse(Convert.ToString(reader["Id"])));
                         names.Add(Convert.ToString(reader["nome_produto"]));
                         quantidade.Add(Convert.ToString(reader["quantidade"]));
                         data_criacao.Add(Convert.ToString(reader["data_criacao"]));
@@ -72,22 +81,33 @@ namespace Gerenciador_vitural_de_estoque
 
                     }
 
+                    this.IdProduct = IdProductList.ToArray();
                     this.namesAr = names.ToArray();
                     this.quantidadeAr = quantidade.ToArray();
                     this.unidadeAr = unidade.ToArray();
                     this.data_criacaoAr = data_criacao.ToArray();
 
+                    this.message = "Consulta à tabela de produtos efetuada com sucesso!!";
+
                 }
 
                 else if (nomeTabela == "operations")
                 {
+                    //COMANDO SQL
+                    cmd.CommandText = String.Format("SELECT * FROM [{0}]", nomeTabela);
+                    //System.Diagnostics.Debug.WriteLine("Chegou");
+                    //Executa comando 
+                    SqlDataReader reader = cmd.ExecuteReader();
+
                     while (reader.Read())
                     {
+                        fkProductList.Add(int.Parse(Convert.ToString(reader["id-product"])));
                         tipoOperacaoList.Add(Convert.ToString(reader["tipo-operacao"]));
                         descricaoList.Add(Convert.ToString(reader["descricao"]));
-                        dataOperacaoList.Add(Convert.ToString(reader["data_operacao"]));
+                        dataOperacaoList.Add(Convert.ToString(reader["data-operacao"]));
                         relatorioList.Add(Convert.ToString(reader["relatorio"]));
 
+                        this.fkProduct = fkProductList.ToArray();
                         this.tipoOperacao = tipoOperacaoList.ToArray();
                         this.descricao = descricaoList.ToArray();
                         this.dataOperacao = dataOperacaoList.ToArray();
@@ -95,7 +115,9 @@ namespace Gerenciador_vitural_de_estoque
 
                     }
 
-                   
+                    this.message = "Consulta à tabela de operações efetuada com sucesso!!";
+
+
                 }
 
 
@@ -106,7 +128,7 @@ namespace Gerenciador_vitural_de_estoque
 
 
 
-                this.message = "Consulta ao banco efetuada com sucesso!!";
+                
 
             }
 

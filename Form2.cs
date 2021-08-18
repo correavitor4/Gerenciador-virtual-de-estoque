@@ -14,13 +14,16 @@ namespace Gerenciador_vitural_de_estoque
     public partial class Form2 : Form
     {
 
-        //instancia classe de Consultar Valores
-        ConsultValues consult = new ConsultValues("Table");
+        //instancia classes de Consultar Valores
+        ConsultValues consultProducts = new ConsultValues("Table");
+        ConsultValues consultOperations = new ConsultValues("operations");
 
         public Form2()
         {
             InitializeComponent();
-            loadListViewItems();
+            loadListViewProducts();
+            //System.Diagnostics.Debug.WriteLine(consultOperations.tipoOperacao);
+            loadListViewOperations();
             listBox1.Text = null;
         }
 
@@ -35,18 +38,18 @@ namespace Gerenciador_vitural_de_estoque
         }
 
         //Carrega lista do listView
-        private void loadListViewItems()
+        private void loadListViewProducts()
         {
+
             
 
-
-            for(var i = 0; i < consult.namesAr.Length; i++)
+            for (var i = 0; i < consultProducts.namesAr.Length; i++)
             {
                 string[] arr = new string[4];
-                arr[0] = consult.namesAr[i];
-                arr[1] = consult.quantidadeAr[i];
-                arr[2] = consult.unidadeAr[i];
-                arr[3] = consult.data_criacaoAr[i].ToString();
+                arr[0] = consultProducts.namesAr[i];
+                arr[1] = consultProducts.quantidadeAr[i];
+                arr[2] = consultProducts.unidadeAr[i];
+                arr[3] = consultProducts.data_criacaoAr[i].ToString();
 
                 ListViewItem item = new ListViewItem(arr);
 
@@ -54,60 +57,44 @@ namespace Gerenciador_vitural_de_estoque
 
             }
 
-            /*
-            //Arrays que irão armazenas os dados
-            string[] names;
-            string[] quantidade;
-            string[] unidade;
-            string[] dataCriacao;
+            System.Diagnostics.Debug.WriteLine(consultProducts.getMessage());
 
+        }
 
+        private void loadListViewOperations()
+        {
             
-            //Declaração das listas que irão receber os valores
-            List<string> namesList = new List<string>();
-            List<string> quantidadeList = new List<string>();
-            List<string> unidadeList = new List<string>();
-            List<string> dataCriacaoList = new List<string>();
-
-
-
-            //foreachs que irão preencher as listas com os dados puxados do banco
-            foreach (var item in consult.namesAr)
+            for (var i = 0; i < consultOperations.tipoOperacao.Length; i++)
             {
-                namesList.Add(item.ToString());
+                int idP = returnProductNameByIdInTableProducts(consultOperations.fkProduct[i]);
+                
+
+                string[] arr = new string[5];
+                arr[0] = consultProducts.namesAr[idP].ToString();
+                arr[1] = consultOperations.tipoOperacao[i];
+                arr[2] = consultOperations.descricao[i];
+                arr[3] = consultOperations.dataOperacao[i].ToString();
+                arr[4] = consultOperations.relatorio[i];
+
+                ListViewItem item = new ListViewItem(arr);
+                listView2.Items.Add(item);
             }
 
-            foreach(var item in consult.quantidadeAr){
-                quantidadeList.Add(item.ToString());
-            }
+            System.Diagnostics.Debug.WriteLine(consultOperations.getMessage());
+        }
 
-            foreach (var item in consult.unidadeAr)
+
+        private int returnProductNameByIdInTableProducts(int idFk)
+        {
+            for(var i = 0; i < consultProducts.namesAr.Length; i++)
             {
-                unidadeList.Add(item.ToString());
+                if (idFk == consultProducts.IdProduct[i])
+                {
+                    return consultProducts.IdProduct[i];
+                }
             }
 
-            foreach (var item in consult.data_criacaoAr)
-            {
-                dataCriacaoList.Add(item.ToString());
-            }
-
-
-            //Preenchimento dos arrays string que irão armazenar os dados
-            names =namesList.ToArray();
-            unidade = unidadeList.ToArray();
-            quantidade = quantidadeList.ToArray();
-            dataCriacao = dataCriacaoList.ToArray();
-            */
-
-
-            
-
-
-            
-
-           
-            System.Diagnostics.Debug.WriteLine(consult.getMessage());
-
+            return 0;
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -121,12 +108,12 @@ namespace Gerenciador_vitural_de_estoque
             if (string.IsNullOrEmpty(textBox1.Text) == false)
             {
                 
-                for (var i = 0; i < this.consult.namesAr.Length; i++)
+                for (var i = 0; i < this.consultProducts.namesAr.Length; i++)
                 {
                     updateListBox();
                     
-                    if (consult.namesAr[i].StartsWith(textBox1.Text,StringComparison.CurrentCultureIgnoreCase) && !existsInListBox1(consult.namesAr[i])){
-                        listBox1.Items.Add(consult.namesAr[i]);
+                    if (consultProducts.namesAr[i].StartsWith(textBox1.Text,StringComparison.CurrentCultureIgnoreCase) && !existsInListBox1(consultProducts.namesAr[i])){
+                        listBox1.Items.Add(consultProducts.namesAr[i]);
                     }
 
                 }
@@ -203,6 +190,9 @@ namespace Gerenciador_vitural_de_estoque
             f.Show();
         }
 
-        
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
