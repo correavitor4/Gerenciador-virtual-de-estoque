@@ -78,9 +78,24 @@ namespace Gerenciador_vitural_de_estoque
                     this.data_criacaoAr = data_criacao.ToArray();
 
                 }
+
                 else if (nomeTabela == "operations")
                 {
+                    while (reader.Read())
+                    {
+                        tipoOperacaoList.Add(Convert.ToString(reader["tipo-operacao"]));
+                        descricaoList.Add(Convert.ToString(reader["descricao"]));
+                        dataOperacaoList.Add(Convert.ToString(reader["data_operacao"]));
+                        relatorioList.Add(Convert.ToString(reader["relatorio"]));
 
+                        this.tipoOperacao = tipoOperacaoList.ToArray();
+                        this.descricao = descricaoList.ToArray();
+                        this.dataOperacao = dataOperacaoList.ToArray();
+                        this.relatorio = relatorioList.ToArray();
+
+                    }
+
+                   
                 }
 
 
