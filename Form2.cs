@@ -170,12 +170,11 @@ namespace Gerenciador_vitural_de_estoque
             else
             {
                 updateListBox();
-                for (var i = 0; i < listBox1.Items.Count; i++)
+                for (var i = listBox1.Items.Count-1; i >= 0; i--)
                 {
                     listBox1.Items.Remove(listBox1.Items[i]);
                 }
-                //Não me pergunte o porquê dessa linha
-                listBox1.Items.Remove(listBox1.Items[0]);
+                
                 
                
             }
