@@ -37,6 +37,9 @@ namespace Gerenciador_vitural_de_estoque
 
         }
 
+
+        #region "listview's"
+
         //Carrega lista do listView
         private void loadListViewProducts()
         {
@@ -96,6 +99,34 @@ namespace Gerenciador_vitural_de_estoque
 
             return 0;
         }
+        /*
+        private int returnOperationIdByProductId(int idp)
+        {
+            for(int i = 0; i < consultProducts.IdProduct.Length; i++)
+            {
+                if (consultProducts.IdProduct[i] == idp)
+                {
+
+                }
+            }
+        }
+        */
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        
+
+        #endregion
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -172,15 +203,76 @@ namespace Gerenciador_vitural_de_estoque
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (listBox1.SelectedItem != null)
+            if(listView1.SelectedItems.Count != 0)
             {
-                string itemSelecionado = listBox1.SelectedItem.ToString();
+                //string selectedItemNamePreFormated = listView1.SelectedItems[0].SubItems[0].Text;
+                //estava acrescentando ListViewSubItem: {nome}, então fiz a formatação da string para purificá-la
+                string selectedItemName = listView1.SelectedItems[0].SubItems[0].Text;
+
                 
+
+                System.Diagnostics.Debug.WriteLine(selectedItemName);
+                
+                int productId = returnIdProductByProductName(selectedItemName);
+                System.Diagnostics.Debug.WriteLine(productId);
+                showOperationsByProductsFkInListView2(productId);
             }
+            
+            
+
+
 
         }
+
+        private int returnIdProductByProductName(string name)
+        {
+            for (var i = 0; i < consultProducts.namesAr.Length; i++)
+            {
+                //System.Diagnostics.Debug.WriteLine(consultProducts.namesAr[i]);
+                if (consultProducts.namesAr[i] == name)
+                {
+                    
+                    return consultProducts.IdProduct[i];
+                }
+            }
+
+            return 0;
+        }
+
+        private void showOperationsByProductsFkInListView2(int fk)
+        {
+
+            //remove itens do listView2 para adicionar novos
+            for(int i = 0; i < listView2.Items.Count; i++)
+            {
+                listView2.Items.Remove(listView2.Items[i]);
+            }
+
+            //Salva o nome do produto selecionado nessa variável (fiz antes do 'for' para poupar processamento desnecessário)
+            string productName = returnProductNameByIdInTableProducts(fk).ToString();
+            for (var i=0;i< consultOperations.tipoOperacao.Length; i++)
+            {
+                if (consultOperations.fkProduct[i] == fk)
+                {
+                    System.Diagnostics.Debug.WriteLine("chegou");
+
+                    string[] arr = new string[5];
+                    arr[0] = productName;
+                    arr[1] = consultOperations.tipoOperacao[i];
+                    arr[2] = consultOperations.descricao[i];
+                    arr[3] = consultOperations.dataOperacao[i];
+                    arr[4] = consultOperations.relatorio[i];
+
+                    ListViewItem item = new ListViewItem(arr);
+                    listView2.Items.Add(item);
+                        
+                }
+            }
+        }
+
+        
 
         #endregion
 
@@ -190,9 +282,6 @@ namespace Gerenciador_vitural_de_estoque
             f.Show();
         }
 
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

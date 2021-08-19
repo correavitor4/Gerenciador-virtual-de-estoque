@@ -101,7 +101,7 @@ namespace Gerenciador_vitural_de_estoque
 
                     while (reader.Read())
                     {
-                        fkProductList.Add(int.Parse(Convert.ToString(reader["id-product"])));
+                        fkProductList.Add(int.Parse(Convert.ToString(reader["Id-product"])));
                         tipoOperacaoList.Add(Convert.ToString(reader["tipo-operacao"]));
                         descricaoList.Add(Convert.ToString(reader["descricao"]));
                         dataOperacaoList.Add(Convert.ToString(reader["data-operacao"]));
