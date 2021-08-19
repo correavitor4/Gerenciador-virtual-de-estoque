@@ -69,7 +69,7 @@ namespace Gerenciador_vitural_de_estoque
             
             for (var i = 0; i < consultOperations.tipoOperacao.Length; i++)
             {
-                int idP = returnProductNameByIdInTableProducts(consultOperations.fkProduct[i]);
+                int idP = returnProductNameIndexByIdInTableProducts(consultOperations.fkProduct[i]);
                 
 
                 string[] arr = new string[5];
@@ -87,7 +87,7 @@ namespace Gerenciador_vitural_de_estoque
         }
 
 
-        private int returnProductNameByIdInTableProducts(int idFk)
+        private int returnProductNameIndexByIdInTableProducts(int idFk)
         {
             for(var i = 0; i < consultProducts.namesAr.Length; i++)
             {
@@ -99,6 +99,23 @@ namespace Gerenciador_vitural_de_estoque
 
             return 0;
         }
+
+
+        private string returnProductNameByIdInTableProducts(int idFk)
+        {
+            for (var i = 0; i < consultProducts.namesAr.Length; i++)
+            {
+                if (idFk == consultProducts.IdProduct[i])
+                {
+
+                    
+                    return consultProducts.namesAr[i];
+                }
+            }
+
+            return null;
+        }
+
         /*
         private int returnOperationIdByProductId(int idp)
         {
@@ -233,7 +250,7 @@ namespace Gerenciador_vitural_de_estoque
                 //System.Diagnostics.Debug.WriteLine(consultProducts.namesAr[i]);
                 if (consultProducts.namesAr[i] == name)
                 {
-                    
+                    System.Diagnostics.Debug.WriteLine(consultProducts.IdProduct[i]);
                     return consultProducts.IdProduct[i];
                 }
             }
@@ -245,13 +262,15 @@ namespace Gerenciador_vitural_de_estoque
         {
 
             //remove itens do listView2 para adicionar novos
-            for(int i = 0; i < listView2.Items.Count; i++)
+            for(int i = listView2.Items.Count-1; i >= 0; i--)
             {
                 listView2.Items.Remove(listView2.Items[i]);
             }
+            
+            /////////////////////////////////////////
 
             //Salva o nome do produto selecionado nessa variável (fiz antes do 'for' para poupar processamento desnecessário)
-            string productName = returnProductNameByIdInTableProducts(fk).ToString();
+            string productName = returnProductNameByIdInTableProducts(fk);
             for (var i=0;i< consultOperations.tipoOperacao.Length; i++)
             {
                 if (consultOperations.fkProduct[i] == fk)
