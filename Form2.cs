@@ -145,6 +145,9 @@ namespace Gerenciador_vitural_de_estoque
 
         #endregion
 
+
+
+
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -291,6 +294,7 @@ namespace Gerenciador_vitural_de_estoque
         }
 
         
+        
 
         #endregion
 
@@ -300,6 +304,50 @@ namespace Gerenciador_vitural_de_estoque
             f.Show();
         }
 
-        
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Somente executa o bloco se o valor do listBox1 for diferente de nulo
+            if (listBox1.SelectedItem != null)
+            {
+                string selectedItemInListBox1 = listBox1.SelectedItem.ToString();
+                
+                if (selectedItemInListBox1 != null && selectedItemInListBox1 != string.Empty)
+                {
+                    //Limpa a listView2, caso haja algum item lá dentro 
+                    if (listView2.Items.Count != 0)
+                    {
+                        for (int i = listView2.Items.Count - 1; i >= 0; i--)
+                        {
+                            listView2.Items.Remove(listView2.Items[i]);
+                        }
+                    }
+                    
+
+                    //Armazena o ID do produto com base no nome
+                    int productId = returnIdProductByProductName(selectedItemInListBox1);
+
+                    for (int i = 0; i < consultOperations.tipoOperacao.Length; i++)
+                    {
+                        if (productId == consultOperations.fkProduct[i])
+                        {
+                            
+                            string nameProduct = returnProductNameByIdInTableProducts(productId);
+                            string[] item = new string[5];
+                            item[0] = nameProduct;
+                            item[1] = consultOperations.tipoOperacao[i];
+                            item[2] = consultOperations.descricao[i];
+                            item[3] = consultOperations.dataOperacao[i];
+                            item[4] = consultOperations.relatorio[i];
+
+                            ListViewItem newItem = new ListViewItem(item);
+                            listView2.Items.Add(newItem);
+
+                        }
+                    }
+
+                }
+            }
+            
+        }
     }
 }

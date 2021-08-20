@@ -108,6 +108,7 @@ namespace Gerenciador_vitural_de_estoque
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(369, 121);
             this.listBox1.TabIndex = 5;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
