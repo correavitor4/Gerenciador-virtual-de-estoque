@@ -42,7 +42,7 @@ namespace Gerenciador_vitural_de_estoque
         {
             Form f = new FormCadastrarProdutos();
             f.Show();
-            this.Close();
+            
 
         }
 
