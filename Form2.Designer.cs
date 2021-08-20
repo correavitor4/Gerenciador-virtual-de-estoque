@@ -49,6 +49,7 @@ namespace Gerenciador_vitural_de_estoque
             this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,6 +97,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.button3);
             this.splitContainer3.Panel2.Controls.Add(this.button2);
             this.splitContainer3.Size = new System.Drawing.Size(942, 253);
             this.splitContainer3.SplitterDistance = 548;
@@ -130,11 +132,11 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(81, 101);
+            this.button2.Location = new System.Drawing.Point(73, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(236, 56);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Adicionar ou remover produtos";
+            this.button2.Text = "Cadastros de produtos";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -247,6 +249,17 @@ namespace Gerenciador_vitural_de_estoque
             // 
             this.columnHeader9.Text = "relatório";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(73, 130);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(235, 56);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Editar Estoque";
+            this.button3.UseCompatibleTextRendering = true;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +308,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Button button3;
     }
 }
