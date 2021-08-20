@@ -26,5 +26,31 @@ namespace Gerenciador_vitural_de_estoque
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //verifica se o usuário preencheu corretamente
+            if (checkRegistrationConditions())
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Você deixou um campo vazio");
+            }
+        }
+
+        private bool checkRegistrationConditions()
+        {
+            if (textBox1.Text == null || textBox1.Text=="" || textBox1.Text==string.Empty)
+            {
+                return false;
+            }
+            if (textBox2.Text == null || textBox2.Text == "" || textBox2.Text == string.Empty)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
