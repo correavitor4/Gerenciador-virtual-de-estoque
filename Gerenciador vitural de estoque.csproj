@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassRegisterProduct.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="ConsultValues.cs" />
     <Compile Include="Database1DataSet.cs">

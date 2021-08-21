@@ -32,7 +32,17 @@ namespace Gerenciador_vitural_de_estoque
             //verifica se o usuário preencheu corretamente
             if (checkRegistrationConditions())
             {
-
+                //sub-rotina que registra o produto
+                if (textBox2.Text.Length > 10)
+                {
+                    MessageBox.Show("A unidade deve ter menos de 10 letras");
+                }
+                else
+                {
+                    registerProduct();
+                    
+                }
+                
             }
             else
             {
@@ -50,7 +60,27 @@ namespace Gerenciador_vitural_de_estoque
             {
                 return false;
             }
+            
             return true;
         }
+
+        private void registerProduct()
+        {
+            string productName = textBox1.Text;
+
+            string unity = textBox2.Text;
+            
+            
+
+            ClassRegisterProduct registro = new ClassRegisterProduct(productName,unity);
+
+            registro.getMessage();
+
+            MessageBox.Show("Produto cadastrado com sucesso");
+            this.Close();
+            
+        }
+
+        
     }
 }

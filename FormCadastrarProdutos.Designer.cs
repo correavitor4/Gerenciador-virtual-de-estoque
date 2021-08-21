@@ -105,6 +105,7 @@ namespace Gerenciador_vitural_de_estoque
             this.Controls.Add(this.textBox1);
             this.Name = "FormCadastrarProdutos";
             this.Text = "FormCadastrarProdutos";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

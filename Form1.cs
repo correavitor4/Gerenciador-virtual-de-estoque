@@ -241,7 +241,7 @@ namespace Gerenciador_vitural_de_estoque
         }
 
 
-        private void openFormulary(object formulary)
+        public void openFormulary(object formulary)
         {
             if (splitContainer2.Panel2.Controls.Count > 0)
             {
@@ -260,6 +260,8 @@ namespace Gerenciador_vitural_de_estoque
             
             
         }
+
+        
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
         {

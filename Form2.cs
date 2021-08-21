@@ -302,6 +302,7 @@ namespace Gerenciador_vitural_de_estoque
         {
             Form f = new Form3();
             f.Show();
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
