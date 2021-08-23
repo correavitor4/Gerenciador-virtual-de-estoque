@@ -21,7 +21,7 @@ namespace Gerenciador_vitural_de_estoque
         public Form2()
         {
             InitializeComponent();
-            loadListViewProducts();
+            loadListViewProducts(); 
             //System.Diagnostics.Debug.WriteLine(consultOperations.tipoOperacao);
             loadListViewOperations();
             listBox1.Text = null;
@@ -41,10 +41,19 @@ namespace Gerenciador_vitural_de_estoque
         #region "listview's"
 
         //Carrega lista do listView
-        private void loadListViewProducts()
+        public void loadListViewProducts()
         {
 
-            
+
+            if (listView1.Items.Count > 0)
+            {
+                for(var i = listView1.Items.Count - 1; i >= 0; i--)
+                {
+                    listView1.Items.Remove(listView1.Items[i]);
+                }
+
+                this.consultProducts = new ConsultValues("Table");
+            }
 
             for (var i = 0; i < consultProducts.namesAr.Length; i++)
             {
@@ -354,6 +363,16 @@ namespace Gerenciador_vitural_de_estoque
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void splitContainer3_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            loadListViewProducts();
         }
     }
 }

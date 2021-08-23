@@ -79,6 +79,7 @@ namespace Gerenciador_vitural_de_estoque
             MessageBox.Show("Produto cadastrado com sucesso");
             this.Close();
             
+            
         }
 
         

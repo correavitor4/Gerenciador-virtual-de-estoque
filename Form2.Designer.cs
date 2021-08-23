@@ -31,9 +31,11 @@ namespace Gerenciador_vitural_de_estoque
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.button4 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -45,11 +47,10 @@ namespace Gerenciador_vitural_de_estoque
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
-            this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button3 = new System.Windows.Forms.Button();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,7 +81,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(942, 710);
-            this.splitContainer1.SplitterDistance = 253;
+            this.splitContainer1.SplitterDistance = 252;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer3
@@ -91,17 +92,29 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.button4);
             this.splitContainer3.Panel1.Controls.Add(this.listBox1);
             this.splitContainer3.Panel1.Controls.Add(this.button1);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer3.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer3_Panel1_Paint);
             // 
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.button3);
             this.splitContainer3.Panel2.Controls.Add(this.button2);
-            this.splitContainer3.Size = new System.Drawing.Size(942, 253);
+            this.splitContainer3.Size = new System.Drawing.Size(942, 252);
             this.splitContainer3.SplitterDistance = 548;
             this.splitContainer3.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(15, 192);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(116, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Atualizar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // listBox1
             // 
@@ -130,6 +143,17 @@ namespace Gerenciador_vitural_de_estoque
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(73, 130);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(235, 56);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Editar Estoque";
+            this.button3.UseCompatibleTextRendering = true;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(73, 37);
@@ -153,7 +177,7 @@ namespace Gerenciador_vitural_de_estoque
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listView2);
-            this.splitContainer2.Size = new System.Drawing.Size(942, 453);
+            this.splitContainer2.Size = new System.Drawing.Size(942, 454);
             this.splitContainer2.SplitterDistance = 460;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -169,7 +193,7 @@ namespace Gerenciador_vitural_de_estoque
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(460, 453);
+            this.listView1.Size = new System.Drawing.Size(460, 454);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -208,7 +232,7 @@ namespace Gerenciador_vitural_de_estoque
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(478, 453);
+            this.listView2.Size = new System.Drawing.Size(478, 454);
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -229,6 +253,14 @@ namespace Gerenciador_vitural_de_estoque
             this.columnHeader7.Text = "Descrição";
             this.columnHeader7.Width = 120;
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "data da operação";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "relatório";
+            // 
             // directorySearcher1
             // 
             this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
@@ -240,25 +272,6 @@ namespace Gerenciador_vitural_de_estoque
             this.directorySearcher2.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "data da operação";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "relatório";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(73, 130);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 56);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Editar Estoque";
-            this.button3.UseCompatibleTextRendering = true;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form2
             // 
@@ -309,5 +322,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
