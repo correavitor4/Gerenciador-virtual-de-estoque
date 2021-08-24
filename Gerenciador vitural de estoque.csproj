@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassEditProduct.cs" />
     <Compile Include="ClassRegisterProduct.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="ConsultValues.cs" />
@@ -90,6 +91,12 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastrarProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarProdutos.resx">
       <DependentUpon>FormCadastrarProdutos.cs</DependentUpon>
