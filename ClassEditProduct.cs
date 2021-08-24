@@ -30,8 +30,8 @@ namespace Gerenciador_vitural_de_estoque
                 cmd.ExecuteNonQuery();
 
                 message = "Edição efetudada com sucesso";
-                
-                conn.disconnect
+
+                conn.disconnect();
             
             }
             catch(SqlException e)

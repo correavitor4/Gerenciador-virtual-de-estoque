@@ -53,7 +53,32 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Você deve selecionar o produto que quer editar. A seleção é feita na lista à esquerda");
+            }
+            else
+            {
 
+                string selectedProductName = listView1.Items[listView1.SelectedIndices[0]].SubItems[0].Text;
+                int id = getProductIdByName(selectedProductName);
+
+                Form f = new Form4(id);
+                f.Show();
+            }
+        }
+
+        private int getProductIdByName(string name)
+        {
+            for(int i =0; i < products.namesAr.Length; i++)
+            {
+                if(name == products.namesAr[i])
+                {
+                    return products.IdProduct[i];
+                }
+            }
+
+            return 0;
         }
     }
 }
