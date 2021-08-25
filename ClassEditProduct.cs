@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Sql;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace Gerenciador_vitural_de_estoque
 {
@@ -15,7 +9,7 @@ namespace Gerenciador_vitural_de_estoque
         SqlCommand cmd = new SqlCommand();
 
         private string message = "";
-        ClassEditProduct(string id,string name,string unity)
+        public ClassEditProduct(string id, string name, string unity)
         {
 
             try
@@ -24,7 +18,7 @@ namespace Gerenciador_vitural_de_estoque
                 cmd.Connection = conn.connect();
 
                 //Comando que será executado
-                cmd.CommandText = string.Format("UPDATE Table SET nome_produto={0},unidade={1} WHERE id={2}",name,unity,id);
+                cmd.CommandText = string.Format("UPDATE [dbo].[Table] SET nome_produto='{0}',unidade='{1}' WHERE id={2}", name, unity, id);
 
                 //executa o comando
                 cmd.ExecuteNonQuery();
@@ -32,9 +26,9 @@ namespace Gerenciador_vitural_de_estoque
                 message = "Edição efetudada com sucesso";
 
                 conn.disconnect();
-            
+
             }
-            catch(SqlException e)
+            catch (SqlException e)
             {
                 System.Diagnostics.Debug.WriteLine(e);
                 this.message = "Erro ao se conectar ao banco";

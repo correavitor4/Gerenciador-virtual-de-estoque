@@ -13,6 +13,12 @@ namespace Gerenciador_vitural_de_estoque
     public partial class Form4 : Form
     {
         ConsultValues products = new ConsultValues("Table");
+        ClassEditProduct edit ;
+
+        private string oldName;
+        private string oldUnity;
+        private int IdOfProduct;
+
         public Form4(int id)
         {
             InitializeComponent();
@@ -26,6 +32,9 @@ namespace Gerenciador_vitural_de_estoque
             {
                 if(id == products.IdProduct[i])
                 {
+                    this.oldName = products.namesAr[i];
+                    this.oldUnity = products.unidadeAr[i];
+
                     textBox1.Text = products.namesAr[i];
                     textBox2.Text = products.unidadeAr[i];
                 }
@@ -49,7 +58,31 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text==oldName && textBox2.Text == oldUnity)
+            {
+                MessageBox.Show("Você não alterou alterou nada!");
+                this.Close();
 
+            }
+            else
+            {
+                if (textBox2.Text.Length > 10)
+                {
+                    MessageBox.Show("O campo de unidade deve ter 10 caracteres ou menos");
+                }
+                else
+                {
+                    this.edit = new ClassEditProduct(this.IdOfProduct.ToString(), textBox1.Text, textBox2.Text);
+                    this.Close();
+                }
+                
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
