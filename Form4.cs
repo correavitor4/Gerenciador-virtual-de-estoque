@@ -73,7 +73,9 @@ namespace Gerenciador_vitural_de_estoque
                 }
                 else
                 {
-                    this.edit = new ClassEditProduct(this.IdOfProduct, textBox1.Text, textBox2.Text);
+                    editThisProduct();
+                    
+
                     this.Close();
                 }
                 
@@ -86,6 +88,10 @@ namespace Gerenciador_vitural_de_estoque
             this.Close();
         }
 
+        private void editThisProduct()
+        {
+            this.edit = new ClassEditProduct(this.IdOfProduct, textBox1.Text, textBox2.Text);
+        }
         
     }
 }
