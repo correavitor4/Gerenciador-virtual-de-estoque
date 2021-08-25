@@ -34,6 +34,7 @@ namespace Gerenciador_vitural_de_estoque
                 {
                     this.oldName = products.namesAr[i];
                     this.oldUnity = products.unidadeAr[i];
+                    this.IdOfProduct = products.IdProduct[i];
 
                     textBox1.Text = products.namesAr[i];
                     textBox2.Text = products.unidadeAr[i];
@@ -72,7 +73,7 @@ namespace Gerenciador_vitural_de_estoque
                 }
                 else
                 {
-                    this.edit = new ClassEditProduct(this.IdOfProduct.ToString(), textBox1.Text, textBox2.Text);
+                    this.edit = new ClassEditProduct(this.IdOfProduct, textBox1.Text, textBox2.Text);
                     this.Close();
                 }
                 
@@ -84,5 +85,7 @@ namespace Gerenciador_vitural_de_estoque
         {
             this.Close();
         }
+
+        
     }
 }

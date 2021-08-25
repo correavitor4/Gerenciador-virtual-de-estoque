@@ -9,7 +9,7 @@ namespace Gerenciador_vitural_de_estoque
         SqlCommand cmd = new SqlCommand();
 
         private string message = "";
-        public ClassEditProduct(string id, string name, string unity)
+        public ClassEditProduct(int id, string name, string unity)
         {
 
             try
@@ -18,7 +18,8 @@ namespace Gerenciador_vitural_de_estoque
                 cmd.Connection = conn.connect();
 
                 //Comando que será executado
-                cmd.CommandText = string.Format("UPDATE [dbo].[Table] SET nome_produto='{0}',unidade='{1}' WHERE id={2}", name, unity, id);
+                System.Diagnostics.Debug.WriteLine(id);
+                cmd.CommandText = string.Format("UPDATE [dbo].[Table] SET nome_produto='{0}',unidade='{1}' WHERE id='{2}'", name, unity, id);
 
                 //executa o comando
                 cmd.ExecuteNonQuery();
