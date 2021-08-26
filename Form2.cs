@@ -22,7 +22,7 @@ namespace Gerenciador_vitural_de_estoque
         {
             InitializeComponent();
             loadListViewProducts(); 
-            //System.Diagnostics.Debug.WriteLine(consultOperations.tipoOperacao);
+            
             loadListViewOperations();
             listBox1.Text = null;
         }
@@ -75,14 +75,25 @@ namespace Gerenciador_vitural_de_estoque
 
         private void loadListViewOperations()
         {
-            
+            if (listView2.Items.Count > 0)
+            {
+                for (int i = listView2.Items.Count-1; i >= 0; i--)
+                {
+                    listView2.Items.Remove(listView2.Items[i]);
+                }
+                this.consultOperations = new ConsultValues("operations");
+            }
+
+            System.Diagnostics.Debug.WriteLine(consultOperations.tipoOperacao.Length);
             for (var i = 0; i < consultOperations.tipoOperacao.Length; i++)
             {
-                int idP = returnProductNameIndexByIdInTableProducts(consultOperations.fkProduct[i]);
+                
+                string name = returnProductNameByIdInTableProducts(consultOperations.fkProduct[i]);
                 
 
                 string[] arr = new string[5];
-                arr[0] = consultProducts.namesAr[idP].ToString();
+                System.Diagnostics.Debug.WriteLine(consultProducts.namesAr[i]);
+                arr[0] = name;
                 arr[1] = consultOperations.tipoOperacao[i];
                 arr[2] = consultOperations.descricao[i];
                 arr[3] = consultOperations.dataOperacao[i].ToString();
@@ -108,6 +119,7 @@ namespace Gerenciador_vitural_de_estoque
 
             return 0;
         }
+
 
 
         private string returnProductNameByIdInTableProducts(int idFk)
@@ -241,10 +253,11 @@ namespace Gerenciador_vitural_de_estoque
 
                 
 
-                System.Diagnostics.Debug.WriteLine(selectedItemName);
+                
                 
                 int productId = returnIdProductByProductName(selectedItemName);
-                System.Diagnostics.Debug.WriteLine(productId);
+                
+
                 showOperationsByProductsFkInListView2(productId);
             }
             
@@ -258,10 +271,10 @@ namespace Gerenciador_vitural_de_estoque
         {
             for (var i = 0; i < consultProducts.namesAr.Length; i++)
             {
-                //System.Diagnostics.Debug.WriteLine(consultProducts.namesAr[i]);
+                
                 if (consultProducts.namesAr[i] == name)
                 {
-                    System.Diagnostics.Debug.WriteLine(consultProducts.IdProduct[i]);
+                    
                     return consultProducts.IdProduct[i];
                 }
             }
@@ -286,7 +299,7 @@ namespace Gerenciador_vitural_de_estoque
             {
                 if (consultOperations.fkProduct[i] == fk)
                 {
-                    System.Diagnostics.Debug.WriteLine("chegou");
+                    
 
                     string[] arr = new string[5];
                     arr[0] = productName;
@@ -373,6 +386,7 @@ namespace Gerenciador_vitural_de_estoque
         private void button4_Click(object sender, EventArgs e)
         {
             loadListViewProducts();
+            loadListViewOperations();
         }
     }
 }
