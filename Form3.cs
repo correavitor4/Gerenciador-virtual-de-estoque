@@ -80,5 +80,10 @@ namespace Gerenciador_vitural_de_estoque
 
             return 0;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
