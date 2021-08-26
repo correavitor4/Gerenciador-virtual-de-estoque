@@ -20,7 +20,7 @@ namespace Gerenciador_vitural_de_estoque
                 //Comando que será executado
                 
                 
-                .WriteLine(id);
+                
                 cmd.CommandText = string.Format("UPDATE [dbo].[Table] SET nome_produto='{0}',unidade='{1}' WHERE id='{2}'", name, unity, id);
 
                 //executa o comando

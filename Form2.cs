@@ -84,7 +84,7 @@ namespace Gerenciador_vitural_de_estoque
                 this.consultOperations = new ConsultValues("operations");
             }
 
-            System.Diagnostics.Debug.WriteLine(consultOperations.tipoOperacao.Length);
+            ;
             for (var i = 0; i < consultOperations.tipoOperacao.Length; i++)
             {
                 
@@ -92,7 +92,7 @@ namespace Gerenciador_vitural_de_estoque
                 
 
                 string[] arr = new string[5];
-                System.Diagnostics.Debug.WriteLine(consultProducts.namesAr[i]);
+                
                 arr[0] = name;
                 arr[1] = consultOperations.tipoOperacao[i];
                 arr[2] = consultOperations.descricao[i];
