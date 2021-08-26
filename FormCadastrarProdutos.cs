@@ -12,6 +12,9 @@ namespace Gerenciador_vitural_de_estoque
 {
     public partial class FormCadastrarProdutos : Form
     {
+        //Variável de gambiarra para comparação em laço de repeticão na função registerThisOperation()
+        private string nameP;
+
         public FormCadastrarProdutos()
         {
             InitializeComponent();
@@ -40,6 +43,7 @@ namespace Gerenciador_vitural_de_estoque
                 else
                 {
                     registerProduct();
+                    registerThisOperation();
                     
                 }
                 
@@ -66,6 +70,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void registerProduct()
         {
+            this.nameP = textBox1.Text;
             string productName = textBox1.Text;
 
             string unity = textBox2.Text;
@@ -82,6 +87,28 @@ namespace Gerenciador_vitural_de_estoque
             
         }
 
-        
+        private void registerThisOperation()
+        {
+            //É preciso consultar o banco para pegar o ID do produto recém criado
+            ConsultValues p = new ConsultValues("Table");
+            int idOfProduct=0;
+            //Esse laço de repeticão preenche a variável idOfProduct
+            System.Diagnostics.Debug.WriteLine(textBox1.Text);
+            for(int i = 0; i < p.namesAr.Length; i++)
+            {
+                if (p.namesAr[i] ==nameP)
+                {
+                    idOfProduct = p.IdProduct[i];
+                }
+            }
+
+            
+            string operationType = "Cadastro";
+            string relatory = "Produto cadastrado com sucesso no Banco de Dados";
+            string description = string.Format("{0} cadastrado com a unidade '{1}'",textBox1.Text,textBox2.Text);
+            
+
+            ClassRegisterOperation op = new ClassRegisterOperation(idOfProduct, operationType, description,relatory);
+        }
     }
 }

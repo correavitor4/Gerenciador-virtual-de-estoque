@@ -23,8 +23,7 @@ namespace Gerenciador_vitural_de_estoque
             {
                 //Recebe o endereço da conexão
                 cmd.Connection = conn.connect();
-                System.Diagnostics.Debug.WriteLine(operationType);
-                System.Diagnostics.Debug.WriteLine(description);
+                
 
                 if (!String.IsNullOrEmpty(relatory))
                 {
