@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassEditProduct.cs" />
+    <Compile Include="ClassRegisterOperation.cs" />
     <Compile Include="ClassRegisterProduct.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="ConsultValues.cs" />
@@ -107,6 +108,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterOperation.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

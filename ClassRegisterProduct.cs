@@ -27,7 +27,7 @@ namespace Gerenciador_vitural_de_estoque
                 cmd.Connection = conn.connect();
                 
                 cmd.CommandText = string.Format("INSERT INTO [dbo].[Table] (nome_produto,unidade) VALUES ('{0}','{1}')",productName,unity);
-                System.Diagnostics.Debug.WriteLine(unity);
+                //System.Diagnostics.Debug.WriteLine(unity);
                 
                 cmd.ExecuteNonQuery();
                 
