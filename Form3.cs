@@ -123,7 +123,7 @@ namespace Gerenciador_vitural_de_estoque
             int id = returnProductIdByProductName(nameProduct);
 
             ClassRemoveOperation op = new ClassRemoveOperation(id);
-            op.getMessage();
+            System.Diagnostics.Debug.WriteLine(op.getMessage());
             
         }
 
