@@ -36,7 +36,7 @@ namespace Gerenciador_vitural_de_estoque
 
                 cmd.ExecuteNonQuery();
 
-                message = "Registro de operação efetuado com sucesso";
+                this.message = "Registro de operação efetuado com sucesso";
 
                 conn.disconnect();
 
@@ -45,6 +45,11 @@ namespace Gerenciador_vitural_de_estoque
             {
                 System.Diagnostics.Debug.WriteLine(e);
             }
+        }
+
+        public string getMessage()
+        {
+            return this.message;
         }
         
     }

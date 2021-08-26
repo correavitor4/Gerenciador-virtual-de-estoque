@@ -66,6 +66,7 @@
     <Compile Include="ClassEditProduct.cs" />
     <Compile Include="ClassRegisterOperation.cs" />
     <Compile Include="ClassRegisterProduct.cs" />
+    <Compile Include="ClassRemoveOperation.cs" />
     <Compile Include="ClassRemoveProduct.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="ConsultValues.cs" />
