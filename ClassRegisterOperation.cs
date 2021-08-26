@@ -23,14 +23,16 @@ namespace Gerenciador_vitural_de_estoque
             {
                 //Recebe o endereço da conexão
                 cmd.Connection = conn.connect();
+                System.Diagnostics.Debug.WriteLine(operationType);
+                System.Diagnostics.Debug.WriteLine(description);
 
                 if (!String.IsNullOrEmpty(relatory))
                 {
-                    cmd.CommandText = string.Format("INSERT INTO [dbo].[operations] (Id-product,descricao,tipo-operacao,relatorio) values ('{0}','{1}','{2}','{3}')", idProduct, description, operationType, relatory);
+                    cmd.CommandText = string.Format("INSERT INTO [dbo].[operations] ([Id-product],[descricao],[tipo-operacao],[relatorio]) VALUES ('{0}','{1}','{2}','{3}')", idProduct, description, operationType, relatory);
                 }
                 else
                 {
-                    cmd.CommandText = string.Format("INSERT INTO [dbo].[operations] (Id-product,descricao,tipo-operacao) values ('{0}','{1}','{2}')", idProduct, description, operationType);
+                    cmd.CommandText = string.Format("INSERT INTO [dbo].[operations] ([Id-product],[descricao],[tipo-operacao]) VALUES ('{0}','{1}','{2}')", idProduct, description, operationType);
                 }
 
                 cmd.ExecuteNonQuery();

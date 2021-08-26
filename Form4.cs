@@ -73,8 +73,10 @@ namespace Gerenciador_vitural_de_estoque
                 }
                 else
                 {
+                    //sub-rotinas que registram a modificação do produto e a operação feita nas tabelas 'Table' e 'operations'
                     editThisProduct();
                     
+                    registerThisOperation();
 
                     this.Close();
                 }
@@ -92,6 +94,55 @@ namespace Gerenciador_vitural_de_estoque
         {
             this.edit = new ClassEditProduct(this.IdOfProduct, textBox1.Text, textBox2.Text);
         }
-        
+
+
+        private void registerThisOperation()
+        {
+            int type=0;
+            /*
+            type 
+                1-alteração no nome do produto
+                2-alteração no nome da unidade
+                3-alteração em ambos
+            */
+            if(textBox1.Text==oldName && textBox2.Text == oldUnity)
+            {
+                type = 3;
+            }
+            else
+            {
+                if (textBox1.Text != oldName)
+                {
+                    type = 1;
+                }
+                if(textBox2.Text != oldUnity)
+                {
+                    type = 2;
+                }
+            }
+
+           
+            int idOfProduct = this.IdOfProduct;
+            string relatory = null;
+            string description;
+            string operationType = "Alteração de dados de cadastro de produto";
+
+            switch (type)
+            {
+                case 1:
+                    description = string.Format("Nome do produto atualizado para {0}. O antigo nome era {1}",textBox1.Text,oldName);
+                    break;
+                case 2:
+                    description = string.Format("Unidade alterada para {0}. A antiga era {1}", textBox2.Text, oldUnity);
+                    break;
+                default:
+                    description = string.Format("Nome e unidade alterados para, respectivamente, {0} e {1}", textBox1.Text, textBox2.Text);
+                    break;
+            }
+
+            ClassRegisterOperation op = new ClassRegisterOperation(idOfProduct,operationType,description,relatory);
+
+        }
+
     }
 }
