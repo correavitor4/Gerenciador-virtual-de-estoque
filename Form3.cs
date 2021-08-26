@@ -29,6 +29,15 @@ namespace Gerenciador_vitural_de_estoque
 
         private void showAllProducts()
         {
+            //Se houver produtos, ele limpa para inserir os novos atualizados
+            if (listView1.Items.Count > 0)
+            {
+                for(int i = listView1.Items.Count - 1; i >= 0; i--)
+                {
+                    listView1.Items.Remove(listView1.Items[i]);
+                }
+            }
+
             for(int i = 0; i < products.namesAr.Length; i++)
             {
                 ListViewItem lv = new ListViewItem(products.namesAr[i]);
@@ -98,6 +107,8 @@ namespace Gerenciador_vitural_de_estoque
                 //É preciso antes remover todas as operações do produto, caso contrário, haverá conflitos de fk
                 removeProductsOperations();
                 removeProduct();
+                this.products = new ConsultValues("Table");
+                showAllProducts();
                 //registerThisOperation();
             }
 
