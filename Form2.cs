@@ -375,7 +375,9 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Form f = new Form5();
+            f.Show();
+           
         }
 
         private void splitContainer3_Panel1_Paint(object sender, PaintEventArgs e)
