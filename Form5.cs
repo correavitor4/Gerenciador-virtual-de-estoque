@@ -12,9 +12,12 @@ namespace Gerenciador_vitural_de_estoque
 {
     public partial class Form5 : Form
     {
+
+        ConsultValues products = new ConsultValues("Table");
         public Form5()
         {
             InitializeComponent();
+            loadItems();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,6 +38,15 @@ namespace Gerenciador_vitural_de_estoque
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadItems()
+        {
+            for(int i = 0; i < products.namesAr.Length; i++)
+            {
+                ListViewItem item = new ListViewItem(products.namesAr[i]);
+                listView1.Items.Add(item);
+            }
         }
     }
 }

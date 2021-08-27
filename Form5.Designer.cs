@@ -75,6 +75,7 @@ namespace Gerenciador_vitural_de_estoque
             this.listView1.Size = new System.Drawing.Size(264, 446);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
             // 
             // label1
             // 
