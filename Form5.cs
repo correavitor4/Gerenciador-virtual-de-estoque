@@ -117,6 +117,18 @@ namespace Gerenciador_vitural_de_estoque
             
         }
 
+        private void changeQuantity()
+        {
+            if (checkTheConditionsToChangeQuantity(decimal.Parse(textBox1.Text)))
+            {
+                decimal quantity = decimal.Parse(textBox1.Text);
+                string productName = listView1.SelectedItems[0].Text;
+                int productId = returnProductIdByProductName(productName);
+                ClassChangeQuantityOfProduct op = new ClassChangeQuantityOfProduct(productId, quantity);
+
+            }
+        }
+
         //nextValue corresponde ao novo valor que está tentando ser usado
         private bool checkTheConditionsToChangeQuantity(decimal nextValue)
         {
@@ -135,6 +147,16 @@ namespace Gerenciador_vitural_de_estoque
             {
                 return true;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            changeQuantity();
         }
     }
 }

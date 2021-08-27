@@ -14,13 +14,13 @@ namespace Gerenciador_vitural_de_estoque
         SqlCommand cmd = new SqlCommand();
         string message = "";
 
-        public ClassChangeQuantityOfProduct(int id,int quantity)
+        public ClassChangeQuantityOfProduct(int id,decimal quantity)
         {
             try
             {
                 //recebe o endereço da conexão
                 cmd.Connection = conn.connect();
-                cmd.CommandText = string.Format("UPDATE [dob].[Table] SET [quantidade]={0} WHERE Id={1}", quantity, id);
+                cmd.CommandText = string.Format("UPDATE [dbo].[Table] SET [quantidade]='{0}' WHERE Id='{1}'", quantity, id);
 
                 cmd.ExecuteNonQuery();
 

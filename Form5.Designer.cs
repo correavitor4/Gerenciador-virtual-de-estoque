@@ -37,6 +37,7 @@ namespace Gerenciador_vitural_de_estoque
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +56,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.textBox1);
@@ -91,7 +93,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(101, 288);
+            this.button1.Location = new System.Drawing.Point(98, 315);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 23);
             this.button1.TabIndex = 1;
@@ -101,7 +103,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(266, 288);
+            this.button2.Location = new System.Drawing.Point(266, 315);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 23);
             this.button2.TabIndex = 2;
@@ -117,6 +119,7 @@ namespace Gerenciador_vitural_de_estoque
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -132,11 +135,21 @@ namespace Gerenciador_vitural_de_estoque
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(360, 223);
+            this.label4.Location = new System.Drawing.Point(360, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "unidade";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(98, 246);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(256, 43);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Aplicar alteração";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form5
             // 
@@ -165,5 +178,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
     }
 }
