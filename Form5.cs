@@ -48,5 +48,43 @@ namespace Gerenciador_vitural_de_estoque
                 listView1.Items.Add(item);
             }
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                string nameItem = listView1.SelectedItems[0].Text;
+                int idProduct = returnProductIdByProductName(nameItem);
+
+                showItemDetailsOnLeftContainer(idProduct);
+            }
+            
+
+        }
+        private int returnProductIdByProductName(string name)
+        {
+            for(int i = 0; i < products.namesAr.Length; i++)
+            {
+                if (products.namesAr[i]==name)
+                {
+                    return products.IdProduct[i];
+                }
+            }
+            return 0;
+        }
+
+
+        private void showItemDetailsOnLeftContainer(int idItem)
+        {
+            for(int i = 0; i < products.namesAr.Length; i++)
+            {
+                if (products.IdProduct[i] == idItem)
+                {
+                    textBox1.Text = products.quantidadeAr[i];
+                    label1.Text = products.namesAr[i];
+                    label4.Text = products.unidadeAr[i];
+                }
+            }
+        }
     }
 }

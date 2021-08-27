@@ -71,11 +71,13 @@ namespace Gerenciador_vitural_de_estoque
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(264, 446);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -83,9 +85,8 @@ namespace Gerenciador_vitural_de_estoque
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(138, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 25);
+            this.label1.Size = new System.Drawing.Size(0, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nome do produto";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
