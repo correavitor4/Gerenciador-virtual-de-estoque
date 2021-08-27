@@ -27,7 +27,8 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+          
+            decrementQuantity();
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
@@ -84,6 +85,55 @@ namespace Gerenciador_vitural_de_estoque
                     label1.Text = products.namesAr[i];
                     label4.Text = products.unidadeAr[i];
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            incrementQuantity();
+        }
+
+        private void incrementQuantity()
+        {
+            decimal quantity = decimal.Parse(textBox1.Text);
+            if (checkTheConditionsToChangeQuantity(quantity + 1))
+            {
+                quantity += 1;
+                textBox1.Text = quantity.ToString();
+            }
+            
+        }
+
+        private void decrementQuantity()
+        {
+            
+            decimal quantity = decimal.Parse(textBox1.Text);
+            if (checkTheConditionsToChangeQuantity(quantity - 1))
+            {
+                quantity -= 1;
+                textBox1.Text = quantity.ToString();
+            }
+                
+            
+        }
+
+        //nextValue corresponde ao novo valor que está tentando ser usado
+        private bool checkTheConditionsToChangeQuantity(decimal nextValue)
+        {
+            if (!(listView1.SelectedItems.Count > 0))
+            {
+                MessageBox.Show("Nenhum produto selecionado");
+                return false;
+            }
+
+            if (nextValue < 0)
+            {
+                MessageBox.Show("O valor não pode ser menor do que zero");
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

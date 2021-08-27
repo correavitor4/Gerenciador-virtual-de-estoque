@@ -107,6 +107,7 @@ namespace Gerenciador_vitural_de_estoque
             this.button2.TabIndex = 2;
             this.button2.Text = "Incrementar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -114,6 +115,8 @@ namespace Gerenciador_vitural_de_estoque
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(256, 20);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "0";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 

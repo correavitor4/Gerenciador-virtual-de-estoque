@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassChangeQuantityOfProduct.cs" />
     <Compile Include="ClassEditProduct.cs" />
     <Compile Include="ClassRegisterOperation.cs" />
     <Compile Include="ClassRegisterProduct.cs" />
