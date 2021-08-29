@@ -27,7 +27,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+
             decrementQuantity();
         }
 
@@ -43,7 +43,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void loadItems()
         {
-            for(int i = 0; i < products.namesAr.Length; i++)
+            for (int i = 0; i < products.namesAr.Length; i++)
             {
                 ListViewItem item = new ListViewItem(products.namesAr[i]);
                 listView1.Items.Add(item);
@@ -59,14 +59,14 @@ namespace Gerenciador_vitural_de_estoque
 
                 showItemDetailsOnLeftContainer(idProduct);
             }
-            
+
 
         }
         private int returnProductIdByProductName(string name)
         {
-            for(int i = 0; i < products.namesAr.Length; i++)
+            for (int i = 0; i < products.namesAr.Length; i++)
             {
-                if (products.namesAr[i]==name)
+                if (products.namesAr[i] == name)
                 {
                     return products.IdProduct[i];
                 }
@@ -77,7 +77,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void showItemDetailsOnLeftContainer(int idItem)
         {
-            for(int i = 0; i < products.namesAr.Length; i++)
+            for (int i = 0; i < products.namesAr.Length; i++)
             {
                 if (products.IdProduct[i] == idItem)
                 {
@@ -101,34 +101,35 @@ namespace Gerenciador_vitural_de_estoque
                 quantity += 1;
                 textBox1.Text = quantity.ToString();
             }
-            
+
         }
 
         private void decrementQuantity()
         {
-            
+
             decimal quantity = decimal.Parse(textBox1.Text);
             if (checkTheConditionsToChangeQuantity(quantity - 1))
             {
                 quantity -= 1;
                 textBox1.Text = quantity.ToString();
             }
-                
-            
+
+
         }
 
         private void changeQuantity()
         {
-            decimal number =returnFormatNumber(textBox1.Text);
-            System.Diagnostics.Debug.WriteLine(number);
-            /*if (checkTheConditionsToChangeQuantity(decimal.Parse(textBox1.Text)))
+            //decimal number =decimal.Parse(textBox1.Text);
+            //System.Diagnostics.Debug.WriteLine(number);
+            if (checkTheConditionsToChangeQuantity(decimal.Parse(textBox1.Text)))
             {
-                decimal quantity = decimal.Parse(textBox1.Text);
+
+                string quantity = textBox1.Text.Replace(',', '.');
                 string productName = listView1.SelectedItems[0].Text;
                 int productId = returnProductIdByProductName(productName);
                 ClassChangeQuantityOfProduct op = new ClassChangeQuantityOfProduct(productId, quantity);
-
-            }*/
+                System.Diagnostics.Debug.WriteLine(op.getMessage());
+            }
         }
 
         //nextValue corresponde ao novo valor que está tentando ser usado
@@ -163,12 +164,13 @@ namespace Gerenciador_vitural_de_estoque
             if (checkCharactesOfTextBox(textBox1.Text))
             {
                 changeQuantity();
+                this.products = new ConsultValues("Table");
             }
             else
             {
 
                 string oldValueForTextBox1 = "";
-                for(int i = 0; i < products.namesAr.Length; i++)
+                for (int i = 0; i < products.namesAr.Length; i++)
                 {
                     if (products.namesAr[i] == label1.Text)
                     {
@@ -178,25 +180,25 @@ namespace Gerenciador_vitural_de_estoque
                 textBox1.Text = oldValueForTextBox1;
                 MessageBox.Show("Caracteres da cadeia não são coerentes. Por favor, verifique e tente novamente (utilizar ponto, não vírgula)");
             }
-            
+
         }
 
         private bool checkCharactesOfTextBox(string text)
         {
             bool pontoJaEncontrado = false;
-            char[] c = {'0','1','2','3','4','5','6','7','8','9','.'};
+            char[] c = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',' };
             for (int i = 0; i < text.Length; i++)
             {
                 bool a = false;
-                for(int j = 0; j < c.Length; j++)
+                for (int j = 0; j < c.Length; j++)
                 {
                     if (c[j] == text[i])
                     {
-                        if (c[j]=='.')
+                        if (c[j] == ',')
                         {
                             if (pontoJaEncontrado == false)
                             {
-                                pontoJaEncontrado =true;
+                                pontoJaEncontrado = true;
                             }
                             else
                             {
@@ -206,69 +208,18 @@ namespace Gerenciador_vitural_de_estoque
                         //System.Diagnostics.Debug.WriteLine("encontrou");
                         a = true;
                     }
-                    
+
                 }
                 if (a == false)
                 {
                     return false;
                 }
             }
-            
+
             return true;
         }
 
         //função de gambiarra para formatar o número do textBox1 e convertê-lo para um decimal (já processado)
-        private decimal returnFormatNumber(string text)
-        {
-            string parteInteira = "";
-            int decimalNumberAfterDotLenght = 0;
-            string decimalNumberAfterDot = "";
-            int nI = -1;
-            //percorre a extensão do texto
-            for(int i = 0; i < text.Length; i++)
-            {
-                
-                //quando encontro um ponto, coloca o nIcomo index onde o ponto ocorre
-                if (text[i] == '.')
-                {
-                    nI = i;
-                    
-                    break;
-                }
-                else
-                {
-                    parteInteira += text[i];
-                }
-            }
-            if (nI != (-1) && nI != text.Length-1)
-            {
 
-                //Inclementa 1 no nI para pular a vírgula
-                for(int i = nI+1; i < text.Length; i++)
-                {
-                    //Vai incrementando no que vai ficar depois da vírgula
-                    decimalNumberAfterDotLenght++;
-                    decimalNumberAfterDot += text[i];
-                    System.Diagnostics.Debug.WriteLine(decimalNumberAfterDotLenght);
-                    
-                }
-            }
-
-            //caso não haja decimal, retorna o número inteiro
-            if (decimalNumberAfterDotLenght == 0)
-            {
-                return decimal.Parse(parteInteira);
-            }
-            else
-            {
-                //(+decimal.Parse(decimalNumberAfterDot) / (10 * decimalNumberAfterDotLenght)
-                decimal result =0;
-                decimal denominador = decimal.Parse(Math.Pow(10, decimalNumberAfterDotLenght).ToString());
-                result =decimal.Parse(parteInteira)+(decimal.Parse(decimalNumberAfterDot)/ denominador) ;
-                
-                return result;
-
-            }
-        }
     }
 }
