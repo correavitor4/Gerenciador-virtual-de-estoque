@@ -119,14 +119,16 @@ namespace Gerenciador_vitural_de_estoque
 
         private void changeQuantity()
         {
-            if (checkTheConditionsToChangeQuantity(decimal.Parse(textBox1.Text)))
+            decimal number =returnFormatNumber(textBox1.Text);
+            System.Diagnostics.Debug.WriteLine(number);
+            /*if (checkTheConditionsToChangeQuantity(decimal.Parse(textBox1.Text)))
             {
                 decimal quantity = decimal.Parse(textBox1.Text);
                 string productName = listView1.SelectedItems[0].Text;
                 int productId = returnProductIdByProductName(productName);
                 ClassChangeQuantityOfProduct op = new ClassChangeQuantityOfProduct(productId, quantity);
 
-            }
+            }*/
         }
 
         //nextValue corresponde ao novo valor que está tentando ser usado
@@ -156,7 +158,117 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button3_Click(object sender, EventArgs e)
         {
-            changeQuantity();
+
+            //Verifica se há coerêcia no valor digitado
+            if (checkCharactesOfTextBox(textBox1.Text))
+            {
+                changeQuantity();
+            }
+            else
+            {
+
+                string oldValueForTextBox1 = "";
+                for(int i = 0; i < products.namesAr.Length; i++)
+                {
+                    if (products.namesAr[i] == label1.Text)
+                    {
+                        oldValueForTextBox1 = products.quantidadeAr[i];
+                    }
+                }
+                textBox1.Text = oldValueForTextBox1;
+                MessageBox.Show("Caracteres da cadeia não são coerentes. Por favor, verifique e tente novamente (utilizar ponto, não vírgula)");
+            }
+            
+        }
+
+        private bool checkCharactesOfTextBox(string text)
+        {
+            bool pontoJaEncontrado = false;
+            char[] c = {'0','1','2','3','4','5','6','7','8','9','.'};
+            for (int i = 0; i < text.Length; i++)
+            {
+                bool a = false;
+                for(int j = 0; j < c.Length; j++)
+                {
+                    if (c[j] == text[i])
+                    {
+                        if (c[j]=='.')
+                        {
+                            if (pontoJaEncontrado == false)
+                            {
+                                pontoJaEncontrado =true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        //System.Diagnostics.Debug.WriteLine("encontrou");
+                        a = true;
+                    }
+                    
+                }
+                if (a == false)
+                {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        //função de gambiarra para formatar o número do textBox1 e convertê-lo para um decimal (já processado)
+        private decimal returnFormatNumber(string text)
+        {
+            string parteInteira = "";
+            int decimalNumberAfterDotLenght = 0;
+            string decimalNumberAfterDot = "";
+            int nI = -1;
+            //percorre a extensão do texto
+            for(int i = 0; i < text.Length; i++)
+            {
+                
+                //quando encontro um ponto, coloca o nIcomo index onde o ponto ocorre
+                if (text[i] == '.')
+                {
+                    nI = i;
+                    
+                    break;
+                }
+                else
+                {
+                    parteInteira += text[i];
+                }
+            }
+            if (nI != (-1) && nI != text.Length-1)
+            {
+
+                //Inclementa 1 no nI para pular a vírgula
+                for(int i = nI+1; i < text.Length; i++)
+                {
+                    //Vai incrementando no que vai ficar depois da vírgula
+                    decimalNumberAfterDotLenght++;
+                    decimalNumberAfterDot += text[i];
+                    System.Diagnostics.Debug.WriteLine(decimalNumberAfterDotLenght);
+                    
+                }
+            }
+
+            //caso não haja decimal, retorna o número inteiro
+            if (decimalNumberAfterDotLenght == 0)
+            {
+                return decimal.Parse(parteInteira);
+            }
+            else
+            {
+                //(+decimal.Parse(decimalNumberAfterDot) / (10 * decimalNumberAfterDotLenght)
+                decimal result =0;
+                decimal denominador = decimal.Parse(Math.Pow(10, decimalNumberAfterDotLenght).ToString());
+                result =decimal.Parse(parteInteira)+(decimal.Parse(decimalNumberAfterDot)/ denominador) ;
+                
+                return result;
+
+            }
         }
     }
 }
