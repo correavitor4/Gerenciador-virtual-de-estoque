@@ -14,6 +14,9 @@ namespace Gerenciador_vitural_de_estoque
     {
 
         ConsultValues products = new ConsultValues("Table");
+
+        private string oldQuantity;
+
         public Form5()
         {
             InitializeComponent();
@@ -84,6 +87,7 @@ namespace Gerenciador_vitural_de_estoque
                     textBox1.Text = products.quantidadeAr[i];
                     label1.Text = products.namesAr[i];
                     label4.Text = products.unidadeAr[i];
+                    this.oldQuantity = products.quantidadeAr[i];
                 }
             }
         }
@@ -164,6 +168,7 @@ namespace Gerenciador_vitural_de_estoque
             if (checkCharactesOfTextBox(textBox1.Text))
             {
                 changeQuantity();
+                registerThisOperation();
                 this.products = new ConsultValues("Table");
             }
             else
@@ -217,6 +222,16 @@ namespace Gerenciador_vitural_de_estoque
             }
 
             return true;
+        }
+
+
+        private void registerThisOperation()
+        {
+            int id = returnProductIdByProductName(label1.Text);
+            string operationType = "Modicação da quantidade em estoque";
+            string description = string.Format("A quantidade do produto {0}foi alterada de {1} para {2}",label1.Text,this.oldQuantity,textBox1.Text);
+            string relatory = null;
+            ClassRegisterOperation op = new ClassRegisterOperation(id, operationType, description, relatory);
         }
 
         //função de gambiarra para formatar o número do textBox1 e convertê-lo para um decimal (já processado)
