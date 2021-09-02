@@ -40,7 +40,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            openFormulary(new Form6());
         }
 
 
@@ -201,7 +201,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            openFormulary(new Form2());
         }
 
         #endregion
