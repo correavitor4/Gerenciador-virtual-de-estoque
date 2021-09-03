@@ -12,12 +12,47 @@ namespace Gerenciador_vitural_de_estoque
 {
     public partial class FormClientes : Form
     {
+        ConsultClients clients = new ConsultClients();
         public FormClientes()
         {
             InitializeComponent();
+            loadListViewItems();
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        #region 'listViews'
+        private void loadListViewItems()
+        {
+            //limpa os itens anteriores, caso haja algum
+            if (listView1.Items.Count > 0)
+            {
+                for (int i = listView1.Items.Count - 1; i >= 0; i--)
+                {
+                    listView1.Items.Remove(listView1.Items[i]);
+                }
+                this.clients = new ConsultClients();
+            }
+
+
+            for(int i = 0; i < clients.names.Length; i++)
+            {
+                string[] arr = new string[3];
+                arr[0] = clients.names[i];
+                arr[1] = clients.addresses[i];
+                arr[2] = clients.addresses[i];
+
+                ListViewItem item = new ListViewItem(arr);
+                listView1.Items.Add(item);
+            }
+        }
+
+        #endregion
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
