@@ -70,6 +70,7 @@
     <Compile Include="ClassRemoveOperation.cs" />
     <Compile Include="ClassRemoveProduct.cs" />
     <Compile Include="ConnectionDB.cs" />
+    <Compile Include="ConsultClients.cs" />
     <Compile Include="ConsultValues.cs" />
     <Compile Include="Database1DataSet.cs">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
