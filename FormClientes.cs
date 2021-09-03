@@ -43,7 +43,7 @@ namespace Gerenciador_vitural_de_estoque
                 string[] arr = new string[3];
                 arr[0] = clients.names[i];
                 arr[1] = clients.addresses[i];
-                arr[2] = clients.addresses[i];
+                arr[2] = clients.dates[i];
 
                 ListViewItem item = new ListViewItem(arr);
                 listView1.Items.Add(item);
