@@ -29,6 +29,7 @@ namespace Gerenciador_vitural_de_estoque
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@ namespace Gerenciador_vitural_de_estoque
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +83,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(942, 710);
-            this.splitContainer1.SplitterDistance = 252;
+            this.splitContainer1.SplitterDistance = 251;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer3
@@ -102,7 +104,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             this.splitContainer3.Panel2.Controls.Add(this.button3);
             this.splitContainer3.Panel2.Controls.Add(this.button2);
-            this.splitContainer3.Size = new System.Drawing.Size(942, 252);
+            this.splitContainer3.Size = new System.Drawing.Size(942, 251);
             this.splitContainer3.SplitterDistance = 548;
             this.splitContainer3.TabIndex = 4;
             // 
@@ -177,7 +179,7 @@ namespace Gerenciador_vitural_de_estoque
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listView2);
-            this.splitContainer2.Size = new System.Drawing.Size(942, 454);
+            this.splitContainer2.Size = new System.Drawing.Size(942, 455);
             this.splitContainer2.SplitterDistance = 460;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -193,7 +195,7 @@ namespace Gerenciador_vitural_de_estoque
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(460, 454);
+            this.listView1.Size = new System.Drawing.Size(460, 455);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -232,7 +234,7 @@ namespace Gerenciador_vitural_de_estoque
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(478, 454);
+            this.listView2.Size = new System.Drawing.Size(478, 455);
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -272,6 +274,11 @@ namespace Gerenciador_vitural_de_estoque
             this.directorySearcher2.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form2
             // 
@@ -323,5 +330,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -204,6 +204,11 @@ namespace Gerenciador_vitural_de_estoque
             openFormulary(new Form2());
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            openFormulary(new FormClientes());
+        }
+
         #endregion
 
 
