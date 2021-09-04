@@ -17,8 +17,8 @@
 - [ ] Cadastrar, editar e excluir vendas
 - [ ] Cadastrar, editar e exluir fornecedores
 #### Screenshots
-<img src="screenshots/Captura de Tela (29)">
-<img src="Captura de Tela (31)">
+<img src="screenshots/Captura de Tela (29).png">
+<img src="screenshots/Captura de Tela (31).png">
 
 
 
