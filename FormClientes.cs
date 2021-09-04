@@ -13,9 +13,12 @@ namespace Gerenciador_vitural_de_estoque
     public partial class FormClientes : Form
     {
         ConsultClients clients = new ConsultClients();
+
         public FormClientes()
         {
             InitializeComponent();
+
+            System.Diagnostics.Debug.WriteLine(clients.getMessage());
             loadListViewItems();
         }
 
@@ -35,6 +38,7 @@ namespace Gerenciador_vitural_de_estoque
                     listView1.Items.Remove(listView1.Items[i]);
                 }
                 this.clients = new ConsultClients();
+                System.Diagnostics.Debug.WriteLine(clients.getMessage());
             }
 
 
@@ -53,6 +57,11 @@ namespace Gerenciador_vitural_de_estoque
         #endregion
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
