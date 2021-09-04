@@ -72,7 +72,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(64, 192);
+            this.button1.Location = new System.Drawing.Point(52, 192);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 37);
             this.button1.TabIndex = 4;
@@ -82,7 +82,7 @@ namespace Gerenciador_vitural_de_estoque
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(196, 192);
+            this.button2.Location = new System.Drawing.Point(209, 192);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 37);
             this.button2.TabIndex = 5;
