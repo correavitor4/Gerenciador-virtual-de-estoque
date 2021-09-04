@@ -20,7 +20,7 @@ namespace Gerenciador_vitural_de_estoque
             try
             {
                 cmd.Connection = conn.connect();
-                cmd.CommandText = string.Format("INSERT INTO [dbo][Clientes] (nome,endereco) VALUES('{0}','{1}')",name,address);
+                cmd.CommandText = string.Format("INSERT INTO [dbo].[Clientes] (nome,endereco) VALUES('{0}','{1}')",name,address);
 
                 cmd.ExecuteNonQuery();
 

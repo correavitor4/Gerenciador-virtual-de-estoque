@@ -21,5 +21,34 @@ namespace Gerenciador_vitural_de_estoque
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkRegistrationConditions())
+            {
+
+                ClassRegisterClients op = new ClassRegisterClients(textBox1.Text,textBox2.Text);
+                MessageBox.Show("Cliente cadastrado com sucesso");
+            }
+        }
+
+
+        private bool checkRegistrationConditions()
+        {
+            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Um ou mais campos não foram preenchidos");
+                return false;
+            }
+        }
     }
 }
