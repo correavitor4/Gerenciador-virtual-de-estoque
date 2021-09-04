@@ -9,7 +9,7 @@
 ## Features
 - [x] cadastro de produtos
 - [x] edição de produtos cadastrados
-- [ ] remoção de produtos cadastrados
+- [x] remoção de produtos cadastrados
 - [ ] Cadastrar, editar e exluir clientes
 - [ ] Cadastrar, editar e excluir vendas
 - [ ] Cadastrar, editar e exluir fornecedores
