@@ -40,6 +40,7 @@ namespace Gerenciador_vitural_de_estoque
             this.button3 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,12 +56,14 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button5);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.listBox1);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -102,17 +105,17 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 83);
+            this.button1.Location = new System.Drawing.Point(71, 38);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 60);
+            this.button1.Size = new System.Drawing.Size(187, 53);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Adicionar ou remover clientes";
+            this.button1.Text = "Adicionar cliente";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(71, 190);
+            this.button2.Location = new System.Drawing.Point(71, 117);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(187, 55);
             this.button2.TabIndex = 1;
@@ -155,6 +158,17 @@ namespace Gerenciador_vitural_de_estoque
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.ForeColor = System.Drawing.Color.Red;
+            this.button5.Location = new System.Drawing.Point(71, 196);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(187, 55);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Excluir clientes";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,5 +200,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
