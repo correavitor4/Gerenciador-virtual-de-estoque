@@ -66,5 +66,10 @@ namespace Gerenciador_vitural_de_estoque
             Form f = new FormCadastrarClientes();
             f.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            loadListViewItems();
+        }
     }
 }

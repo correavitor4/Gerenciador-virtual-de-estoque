@@ -39,6 +39,7 @@ namespace Gerenciador_vitural_de_estoque
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -54,6 +55,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.listBox1);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
@@ -142,6 +144,16 @@ namespace Gerenciador_vitural_de_estoque
             this.listBox1.Size = new System.Drawing.Size(232, 121);
             this.listBox1.TabIndex = 4;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(23, 279);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(116, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Atualizar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,5 +184,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button4;
     }
 }

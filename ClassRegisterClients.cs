@@ -35,7 +35,7 @@ namespace Gerenciador_vitural_de_estoque
             
         }
 
-        private string  getMessage()
+        public string  getMessage()
         {
             return this.message;
         }
