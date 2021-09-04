@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassChangeQuantityOfProduct.cs" />
+    <Compile Include="ClassEditClients.cs" />
     <Compile Include="ClassEditProduct.cs" />
     <Compile Include="ClassRegisterClients.cs" />
     <Compile Include="ClassRegisterOperation.cs" />
@@ -135,6 +136,12 @@
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditClients.Designer.cs">
+      <DependentUpon>FormEditClients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -164,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditClients.resx">
+      <DependentUpon>FormEditClients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
