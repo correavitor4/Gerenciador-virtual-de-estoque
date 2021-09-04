@@ -144,7 +144,52 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int id;
+            string name;
+            string address;
+            if (listBox1.SelectedItems.Count > 0)
+            {
+                id = returnIdByClientName(listBox1.SelectedItem.ToString());
+                name = listBox1.SelectedItem.ToString();
+                address = returnClientAddressByName(name);
+                Form f = new FormEditClients(id,name,address);
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Selecione antes o cliente que você quer editar");
+            }
+            
+        }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private int returnIdByClientName(string text)
+        {
+            for(int i = 0; i < clients.names.Length; i++)
+            {
+                if(text == clients.names[i])
+                {
+                    return clients.ids[i];
+                }
+            }
+
+            return 0;
+        }
+
+        private string returnClientAddressByName(string name)
+        {
+            for(int i = 0; i < clients.addresses.Length; i++)
+            {
+                if(name == clients.names[i])
+                {
+                    return clients.addresses[i];
+                }
+            }
+            return null;
         }
     }
 }
