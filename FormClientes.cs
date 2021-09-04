@@ -59,6 +59,19 @@ namespace Gerenciador_vitural_de_estoque
         private void button3_Click(object sender, EventArgs e)
         {
 
+            clearListBox1();
+            string text = textBox1.Text;
+
+            if (!string.IsNullOrEmpty((text)))
+            {
+                if (searchInClients(text) != null)
+                {
+
+                    updateListBox1(searchInClients(text));
+                }
+            }
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +83,53 @@ namespace Gerenciador_vitural_de_estoque
         private void button4_Click(object sender, EventArgs e)
         {
             loadListViewItems();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private string[] searchInClients(string text)
+        {
+            List<string> resultList = new List<string>();
+            for(int i = 0; i < clients.names.Length; i++)
+            {
+                if (clients.names[i].StartsWith(text, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    resultList.Add(clients.names[i]);
+                } 
+            }
+            
+
+            if (resultList.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return resultList.ToArray();
+            }
+        }
+
+        private void updateListBox1(string[] names)
+        {
+            
+            for(int i = 0; i < names.Length; i++)
+            {
+                listBox1.Items.Add(names[i]);
+            }
+        }
+
+        private void clearListBox1()
+        {
+            if (listBox1.Items.Count > 0)
+            {
+                for (int i = listBox1.Items.Count - 1; i >= 0; i--)
+                {
+                    listBox1.Items.Remove(listBox1.Items[i]);
+                }
+            }
         }
     }
 }

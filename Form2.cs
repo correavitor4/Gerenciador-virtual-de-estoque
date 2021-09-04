@@ -390,5 +390,10 @@ namespace Gerenciador_vitural_de_estoque
             loadListViewProducts();
             loadListViewOperations();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
