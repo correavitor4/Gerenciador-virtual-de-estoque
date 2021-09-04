@@ -23,7 +23,7 @@ namespace Gerenciador_vitural_de_estoque
             this.address = address;
 
             InitializeComponent();
-            loadListViewItems();
+            loadListViewItems(null);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -41,7 +41,9 @@ namespace Gerenciador_vitural_de_estoque
             if (checkRegistrationConditions())
             {
                 ClassEditClients op = new ClassEditClients(this.id, textBox1.Text,textBox2.Text) ;
-                op.getMessage();
+                System.Diagnostics.Debug.WriteLine(op.getMessage());
+                MessageBox.Show("Dados de cliente editados com sucesso!");
+                this.Close();
             }
         }
 
@@ -59,10 +61,15 @@ namespace Gerenciador_vitural_de_estoque
             }
         }
 
-        private void loadListViewItems()
+        private void loadListViewItems(string name)
         {
             textBox1.Text = this.name;
             textBox2.Text = this.address;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

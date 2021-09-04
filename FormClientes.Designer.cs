@@ -80,7 +80,7 @@ namespace Gerenciador_vitural_de_estoque
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(187, 55);
             this.button5.TabIndex = 6;
-            this.button5.Text = "Excluir clientes";
+            this.button5.Text = "Excluir este cliente";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -127,7 +127,7 @@ namespace Gerenciador_vitural_de_estoque
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(187, 55);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Editar clientes";
+            this.button2.Text = "Editar dados deste cliente";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -150,11 +150,13 @@ namespace Gerenciador_vitural_de_estoque
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(873, 282);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

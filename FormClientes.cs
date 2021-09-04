@@ -19,7 +19,7 @@ namespace Gerenciador_vitural_de_estoque
             InitializeComponent();
 
             System.Diagnostics.Debug.WriteLine(clients.getMessage());
-            loadListViewItems();
+            loadListViewItems(null);
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
@@ -28,7 +28,7 @@ namespace Gerenciador_vitural_de_estoque
         }
 
         #region 'listViews'
-        private void loadListViewItems()
+        private void loadListViewItems(string name)
         {
             //limpa os itens anteriores, caso haja algum
             if (listView1.Items.Count > 0)
@@ -41,17 +41,38 @@ namespace Gerenciador_vitural_de_estoque
                 System.Diagnostics.Debug.WriteLine(clients.getMessage());
             }
 
-
-            for(int i = 0; i < clients.names.Length; i++)
+            if (string.IsNullOrEmpty(name))
             {
-                string[] arr = new string[3];
-                arr[0] = clients.names[i];
-                arr[1] = clients.addresses[i];
-                arr[2] = clients.dates[i];
+                for (int i = 0; i < clients.names.Length; i++)
+                {
+                    string[] arr = new string[3];
+                    arr[0] = clients.names[i];
+                    arr[1] = clients.addresses[i];
+                    arr[2] = clients.dates[i];
 
-                ListViewItem item = new ListViewItem(arr);
-                listView1.Items.Add(item);
+                    ListViewItem item = new ListViewItem(arr);
+                    listView1.Items.Add(item);
+                }
             }
+            else
+            {
+                for(int i = 0; i < clients.names.Length; i++)
+                {
+                    if(clients.names[i] == name)
+                    {
+                        string[] arr = new string[3];
+                        arr[0] = clients.names[i];
+                        arr[1] = clients.addresses[i];
+                        arr[2] = clients.dates[i];
+
+                        ListViewItem item = new ListViewItem(arr);
+                        listView1.Items.Add(item);
+
+                    }
+                }
+            }
+
+            
         }
 
         #endregion
@@ -82,7 +103,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button4_Click(object sender, EventArgs e)
         {
-            loadListViewItems();
+            loadListViewItems(null);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -139,7 +160,25 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button5_Click(object sender, EventArgs e)
         {
+            string message = "Você tem certeza de que quer apagar esse cliente?";
+            string caption = "Esse cliente será permanentemente apagado";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
 
+            DialogResult result;
+
+            result = MessageBox.Show(message, caption, buttons);
+
+            if(result == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (checkEraseClientConditions())
+                {
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível excluir esse cliente. Por favor, verifique se não há nenhuma venda realizada a ele");
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -155,6 +194,16 @@ namespace Gerenciador_vitural_de_estoque
                 Form f = new FormEditClients(id,name,address);
                 f.Show();
             }
+            else if (listView1.SelectedItems.Count > 0)
+            {
+
+                name = listView1.SelectedItems[0].SubItems[0].Text;
+                id = returnIdByClientName(name);
+                address = returnClientAddressByName(name);
+                Form f = new FormEditClients(id, name, address);
+                f.Show();
+
+            }
             else
             {
                 MessageBox.Show("Selecione antes o cliente que você quer editar");
@@ -164,6 +213,10 @@ namespace Gerenciador_vitural_de_estoque
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBox1.SelectedItems.Count > 0)
+            {
+                loadListViewItems(listBox1.SelectedItem.ToString());
+            }
             
         }
 
@@ -190,6 +243,16 @@ namespace Gerenciador_vitural_de_estoque
                 }
             }
             return null;
+        }
+
+        private bool checkEraseClientConditions()
+        {
+            return false;
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
