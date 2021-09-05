@@ -6,10 +6,6 @@
 ## 🚩Este projeto ainda está em desenvolvimento!
 É possível que a versão final possua diferenças significativas, em relação à atual. Também existe a possibilidade de ocorrer **bugs**. 
 
-## Como executar?
-1. Clone o repositório em sua máquina
-2. Entre na pasta "publish" e clique em "setup" ou em "Gerenciador vitural de estoque"
-3 **Pronto, já estará funcionando!**
 
 ## Features
 - [x] cadastro de produtos
