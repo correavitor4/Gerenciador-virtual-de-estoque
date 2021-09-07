@@ -12,6 +12,9 @@ namespace Gerenciador_vitural_de_estoque
 {
     public partial class Form7 : Form
     {
+        //Informações do cliente
+        int clientId;
+        string clientName;
         public Form7()
         {
             InitializeComponent();
@@ -27,6 +30,10 @@ namespace Gerenciador_vitural_de_estoque
             var f = new FormSelecionarCliente();
             //Diferentemente do Form.Show(), o Form.showDialog() aguarda até quie formulário aberto seja devidamente preenchido, para depois continuar a execução do código
             f.ShowDialog();
+            this.clientId = f.selectedClientId;
+            this.clientName = f.selectedClientName;
+            textBox1.Text = this.clientName;
+
             
         }
     }
