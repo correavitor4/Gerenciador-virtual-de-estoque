@@ -132,7 +132,7 @@ namespace Gerenciador_vitural_de_estoque
                 string productName = listView1.SelectedItems[0].Text;
                 int productId = returnProductIdByProductName(productName);
                 ClassChangeQuantityOfProduct op = new ClassChangeQuantityOfProduct(productId, quantity);
-                System.Diagnostics.Debug.WriteLine(op.getMessage());
+                System.Diagnostics.Debug.WriteLine(op.getMessage()); 
             }
         }
 
