@@ -63,19 +63,24 @@ namespace Gerenciador_vitural_de_estoque
             var f = new FormSelectsProduct();
             f.ShowDialog();
 
-            this.provisionalName = f.productName;
-            this.provisionalQuantity = f.productQuantity;
-            this.provisionalUnity = f.productUnity;
+            if (!string.IsNullOrEmpty(f.productName))
+            {
+                this.provisionalName = f.productName;
+                this.provisionalQuantity = f.productQuantity;
+                this.provisionalUnity = f.productUnity;
+
+                this.provisionalId = f.productId;
+
+                textBox2.Text = this.provisionalName;
+                textBox3.Text = "0";
+                textBox4.Text = "0,00";
+                label2.Text = string.Format("Preço p/{0}", provisionalUnity);
+
+                label3.Text = string.Format("Em estoque: {0}{1}", provisionalQuantity, provisionalUnity);
+                label1.Text = this.provisionalUnity.Replace(" ", "");
+            }
+
             
-            this.provisionalId = f.productId;
-
-            textBox2.Text = this.provisionalName;
-            textBox3.Text = "0 "+this.provisionalUnity.Replace(" ","");
-            textBox4.Text = "0,00R$";
-            label2.Text = string.Format("Preço p/{0}", provisionalUnity);
-
-            label3.Text = string.Format("Em estoque: {0}{1}", provisionalQuantity, provisionalUnity);
-           
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -91,13 +96,22 @@ namespace Gerenciador_vitural_de_estoque
 
         private void loadProductsList()
         {
+            if (listView1.Items.Count > 0)
+            {
+                for(int i = listView1.Items.Count - 1; i >= 0; i--)
+                {
+                    listView1.Items.Remove(listView1.Items[i]);
+                }
+            }
+
+
             for(int i = 0;i< this.productsNameList.Count; i++)
             {
                 string[] array = new string[5];
                 array[0] = this.productsNameList[i];
                 array[1] = this.productsPricePerUnity[i];
                 array[2] = this.productsQuantity[i];
-                array[3] = this.productsQuantity[i];
+                array[3] = this.productsUnity[i];
                 array[4] = this.productsTotalPrice[i];
 
                 ListViewItem lv = new ListViewItem(array);
@@ -119,14 +133,14 @@ namespace Gerenciador_vitural_de_estoque
             decimal productQuantity = decimal.Parse(textBox3.Text);
             double productPricePerUnity = double.Parse(textBox4.Text.Replace("R$",""));
             double totalPrice = productPricePerUnity*double.Parse(productQuantity.ToString());
+            
 
             this.productsNameList.Add(productName);
-            this.productsQuantity.Add(productQuantity.ToString());
             this.productsIdList.Add(getProductIdByName(productName));
             this.productsQuantity.Add(productQuantity.ToString());
             this.productsTotalPrice.Add(totalPrice.ToString());
             this.productsPricePerUnity.Add(productPricePerUnity.ToString());
-            this.productsUnity.Add(productQuantity.ToString());
+            this.productsUnity.Add(this.provisionalUnity.ToString());
 
 
 
@@ -148,11 +162,23 @@ namespace Gerenciador_vitural_de_estoque
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox2.Text != null && textBox2.Text != string.Empty)
+            if (textBox3.Text != null && textBox3.Text != string.Empty)
             {
-                textBox3.Text = removeLetters(textBox3.Text) + " "+ this.provisionalUnity.Replace(" ","");
-
                 
+                
+                if (decimal.Parse(removeLetters(textBox3.Text)) <= this.provisionalQuantity)
+                {
+                    textBox3.Text = removeLetters(textBox3.Text) ;
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("A quantidade a ser vendida não pode exceder a quantidade em estoque!!!");
+                    
+                }
+
+
             }
             else
             {
@@ -182,13 +208,18 @@ namespace Gerenciador_vitural_de_estoque
         {
             if(textBox4.Text != null && textBox4.Text != string.Empty)
             {
-                textBox4.Text = removeLetters(textBox4.Text) + " R$";
+                textBox4.Text = removeLetters(textBox4.Text) ;
             }
             else
             {
                 textBox4.Text = string.Empty;
             }
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*private void formatUnity()

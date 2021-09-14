@@ -148,6 +148,7 @@ namespace Gerenciador_vitural_de_estoque
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "quantidade";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox3
             // 
