@@ -55,6 +55,7 @@ namespace Gerenciador_vitural_de_estoque
             for(int i = 0; i < products.namesAr.Length; i++)
             {
                 if (products.namesAr[i] == name)
+
                 {
                     return products.IdProduct[i];
                 }

@@ -70,7 +70,7 @@ namespace Gerenciador_vitural_de_estoque
             this.provisionalId = f.productId;
 
             textBox2.Text = this.provisionalName;
-            textBox3.Text = "0";
+            textBox3.Text = "0 "+this.provisionalUnity.Replace(" ","");
             textBox4.Text = "0,00R$";
             label2.Text = string.Format("Preço p/{0}", provisionalUnity);
 
@@ -148,7 +148,29 @@ namespace Gerenciador_vitural_de_estoque
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
+            if (textBox2.Text != null && textBox2.Text != string.Empty)
+            {
+                textBox3.Text = removeLetters(textBox3.Text) + " "+ this.provisionalUnity.Replace(" ","");
 
+                
+            }
+            else
+            {
+                textBox3.Text = string.Empty;
+            }
+            
+        }
+
+        private string removeLetters(string text)
+        {
+            string finalText ="";
+            foreach(char item in text)
+            {
+                if (char.IsNumber(item) || item==','){
+                    finalText += item;
+                }
+            }
+            return finalText;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -158,7 +180,15 @@ namespace Gerenciador_vitural_de_estoque
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
+            if(textBox4.Text != null && textBox4.Text != string.Empty)
+            {
+                textBox4.Text = removeLetters(textBox4.Text) + " R$";
+            }
+            else
+            {
+                textBox4.Text = string.Empty;
+            }
+            
         }
 
         /*private void formatUnity()
