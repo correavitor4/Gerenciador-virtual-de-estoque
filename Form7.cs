@@ -10,12 +10,7 @@ using System.Windows.Forms;
 
 
 
-/*this.productsNameList.Remove(this.productsNameList[i]);
-                        this.productsIdList.Remove(this.productsIdList[i]);
-                        this.productsUnity.Remove(this.productsUnity[i]);
-                        this.productsPricePerUnity.Remove(this.productsPricePerUnity[i]);
-                        this.productsQuantity.Remove(this.productsQuantity[i]);
-                        this.productsTotalPrice.Remove(this.productsTotalPrice[i]);*/
+
 
 namespace Gerenciador_vitural_de_estoque
 {
@@ -64,7 +59,7 @@ namespace Gerenciador_vitural_de_estoque
             this.clientName = f.selectedClientName;
             textBox1.Text = this.clientName;
 
-
+            System.Diagnostics.Debug.WriteLine(this.clientId);
             
         }
 
@@ -234,18 +229,14 @@ namespace Gerenciador_vitural_de_estoque
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            
             if (listView1.SelectedItems.Count > 0)
             {
-                var productNameOfSelected = listView1.SelectedItems[0].SubItems[0].Text;
+                
 
                 button4.Visible = true;
-                /*for(int i = 0; i < this.productsNameList.Count; i++)
-                {
-                    if(productNameOfSelected == productsNameList[i])
-                    {
-                        button4.Visible = true;
-                    }
-                }*/
+                
                 
             }
             else
@@ -257,7 +248,78 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button4_Click(object sender, EventArgs e)
         {
+            var productNameOfSelected = listView1.SelectedItems[0].SubItems[0].Text;
+            for (int i = 0; i < this.productsNameList.Count; i++)
+            {
+                if(productNameOfSelected == productsNameList[i])
+                {
+                    this.productsNameList.Remove(this.productsNameList[i]);
+                    this.productsIdList.Remove(this.productsIdList[i]);
+                    this.productsUnity.Remove(this.productsUnity[i]);
+                    this.productsPricePerUnity.Remove(this.productsPricePerUnity[i]);
+                    this.productsQuantity.Remove(this.productsQuantity[i]);
+                    this.productsTotalPrice.Remove(this.productsTotalPrice[i]);
+                }
+            }
+            loadProductsList();
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            //Verifica se há um cliente selecionado
+            if (this.clientId != 0)
+            {
+                //Verifica se há produtos na listview1
+                if (listView1.Items.Count > 0)
+                {
+                    completeSale();
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum produto foi adicionado à venda");
+                }
+            }
+            else
+            {
+                MessageBox.Show("nenhum cliente foi selecionado");
+            }
+
+            
+            
+        }
+
+        private void completeSale()
+        {
+            string productsName = "";
+            string clientName = this.clientName;
+            int clientId = this.clientId;
+            string productsSold = "";
+            string productsSoldId = "";
+            string productsSoldQuantity = "";
+            string productsSoldUnity = "";
+            string productsIndividualPrice = "";
+
+
+            //Grava os valores na variáveis
+            for(int i = 0; i < this.productsPricePerUnity.Count; i++)
+            {
+                
+                   
+                productsName += this.productsNameList[i]+",";
+                productsSoldId += this.productsIdList[i] + ",";
+                productsSoldUnity += this.productsUnity[i] + ",";
+                    
+                productsSoldQuantity+=this.productsQuantity[i] + ",";
+                productsIndividualPrice += this.productsPricePerUnity[i] + ",";
+                
+                
+            }
+            
+            ClassRegisterSale op = new ClassRegisterSale(clientName, productsSold, productsSoldId, productsSoldQuantity, productsSoldUnity, productsIndividualPrice, clientId);
+            System.Diagnostics.Debug.WriteLine(op.getMessage());
+            
+            
         }
 
         /*private void formatUnity()

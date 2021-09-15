@@ -15,14 +15,15 @@ namespace Gerenciador_vitural_de_estoque
 
         private string message = "";
 
-        public ClassRegisterSale(string nomeCliente,string produtosVendidos,string produtosVendidosId,string produtosVendidosQuantidade,string produtosVendidosUnidade,int idCliente)
+        public ClassRegisterSale(string nomeCliente,string produtosVendidos,string produtosVendidosId,string produtosVendidosQuantidade,string produtosVendidosUnidade,string productsIndividualPrice, int idCliente)
         {
 
             try
             {
+                
                 //RECEBE O ENDEREÇO DA CONEXÃO
                 cmd.Connection = conn.connect();
-                cmd.CommandText = string.Format("INSERT INTO [dbo].[Vendas] (nome_cliente,produtos_vendidos,produtos_vendidos_id,id_cliente,produtos_vendidos_quantidade,produtos_vendidos_unidade) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", nomeCliente, produtosVendidos, produtosVendidosId, idCliente,produtosVendidosQuantidade,produtosVendidosUnidade);
+                cmd.CommandText = string.Format("INSERT INTO [dbo].[Vendas] ([nome_cliente],[produtos_vendidos],[produtos_vendidos_id],[id_cliente],[produtos_vendidos_quantidade],[produtos_vendidos_unidade],[preco_individual_produto]) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", nomeCliente, produtosVendidos, produtosVendidosId, idCliente, produtosVendidosQuantidade, produtosVendidosUnidade, productsIndividualPrice) ;
 
                 cmd.ExecuteNonQuery();
 

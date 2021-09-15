@@ -49,6 +49,7 @@ namespace Gerenciador_vitural_de_estoque
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -78,6 +79,7 @@ namespace Gerenciador_vitural_de_estoque
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button5);
             this.splitContainer1.Panel2.Controls.Add(this.button4);
             this.splitContainer1.Size = new System.Drawing.Size(1084, 671);
             this.splitContainer1.SplitterDistance = 541;
@@ -260,6 +262,16 @@ namespace Gerenciador_vitural_de_estoque
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(804, 40);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(231, 51);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Concluir venda";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,5 +318,6 @@ namespace Gerenciador_vitural_de_estoque
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
