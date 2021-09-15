@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassChangeQuantityOfProduct.cs" />
+    <Compile Include="ClassConsultSales.cs" />
     <Compile Include="ClassEditClients.cs" />
     <Compile Include="ClassEditProduct.cs" />
     <Compile Include="ClassRegisterClients.cs" />
