@@ -8,6 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+/*this.productsNameList.Remove(this.productsNameList[i]);
+                        this.productsIdList.Remove(this.productsIdList[i]);
+                        this.productsUnity.Remove(this.productsUnity[i]);
+                        this.productsPricePerUnity.Remove(this.productsPricePerUnity[i]);
+                        this.productsQuantity.Remove(this.productsQuantity[i]);
+                        this.productsTotalPrice.Remove(this.productsTotalPrice[i]);*/
+
 namespace Gerenciador_vitural_de_estoque
 {
     public partial class Form7 : Form
@@ -38,6 +47,7 @@ namespace Gerenciador_vitural_de_estoque
         public Form7()
         {
             InitializeComponent();
+            button4.Visible = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -218,6 +228,34 @@ namespace Gerenciador_vitural_de_estoque
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var productNameOfSelected = listView1.SelectedItems[0].SubItems[0].Text;
+
+                button4.Visible = true;
+                /*for(int i = 0; i < this.productsNameList.Count; i++)
+                {
+                    if(productNameOfSelected == productsNameList[i])
+                    {
+                        button4.Visible = true;
+                    }
+                }*/
+                
+            }
+            else
+            {
+                button4.Visible = false;
+            }
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
