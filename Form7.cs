@@ -291,7 +291,7 @@ namespace Gerenciador_vitural_de_estoque
 
         private void completeSale()
         {
-            string productsName = "";
+            
             string clientName = this.clientName;
             int clientId = this.clientId;
             string productsSold = "";
@@ -305,8 +305,8 @@ namespace Gerenciador_vitural_de_estoque
             for(int i = 0; i < this.productsPricePerUnity.Count; i++)
             {
                 
-                   
-                productsName += this.productsNameList[i]+",";
+                
+                productsSold += this.productsNameList[i]+",";
                 productsSoldId += this.productsIdList[i] + ",";
                 productsSoldUnity += this.productsUnity[i] + ",";
                     
