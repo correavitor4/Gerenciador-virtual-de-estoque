@@ -274,6 +274,7 @@ namespace Gerenciador_vitural_de_estoque
                 if (listView1.Items.Count > 0)
                 {
                     completeSale();
+                    this.Close();
                 }
                 else
                 {
