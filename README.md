@@ -3,17 +3,17 @@
 
 
 
-## 🚩Este projeto ainda está em desenvolvimento!
-É possível que a versão final possua diferenças significativas, em relação à atual. Também existe a possibilidade de ocorrer **bugs**. 
+## ✔️ Este projeto está concluído
+Mas você pode sugerir melhorias. Sinta-se à vontade para contribuir 😊
 
 
 ## Features
 - [x] cadastro de produtos
 - [x] edição de produtos cadastrados
 - [x] remoção de produtos cadastrados
-- [ ] Cadastrar, editar e exluir clientes
-- [ ] Cadastrar, editar e excluir vendas
-- [ ] Cadastrar, editar e exluir fornecedores
+- [X] Cadastrar, editar e exluir clientes
+- [X] Cadastrar, editar e excluir vendas
+
 ## Screenshots
 <img src="screenshots/Captura de Tela (29).png">
 <img src="screenshots/Captura de Tela (31).png">
