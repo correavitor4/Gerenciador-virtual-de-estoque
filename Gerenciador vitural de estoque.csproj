@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="ClassChangeQuantityOfProduct.cs" />
     <Compile Include="ClassConsultSales.cs" />
+    <Compile Include="ClassDeleteClient.cs" />
     <Compile Include="ClassDeleteSale.cs" />
     <Compile Include="ClassEditClients.cs" />
     <Compile Include="ClassEditProduct.cs" />

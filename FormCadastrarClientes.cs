@@ -36,7 +36,8 @@ namespace Gerenciador_vitural_de_estoque
                 ClassRegisterClients op = new ClassRegisterClients(textBox1.Text,textBox2.Text);
                 System.Diagnostics.Debug.WriteLine(op.getMessage());
                 MessageBox.Show("Cliente cadastrado com sucesso");
-                
+
+                this.Close();
             }
         }
 

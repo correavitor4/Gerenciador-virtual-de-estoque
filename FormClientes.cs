@@ -160,25 +160,59 @@ namespace Gerenciador_vitural_de_estoque
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string message = "Você tem certeza de que quer apagar esse cliente?";
-            string caption = "Esse cliente será permanentemente apagado";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            
 
-            DialogResult result;
-
-            result = MessageBox.Show(message, caption, buttons);
-
-            if(result == System.Windows.Forms.DialogResult.Yes)
+            if (listView1.SelectedItems.Count > 0)
             {
-                if (checkEraseClientConditions())
+                string message = "Você tem certeza de que quer apagar esse cliente?";
+                string caption = "Esse cliente será permanentemente apagado";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons);
+
+
+                string clientName = listView1.SelectedItems[0].SubItems[0].Text;
+                int clientId = getClientIdByClientName(clientName);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Não é possível excluir esse cliente. Por favor, verifique se não há nenhuma venda realizada a ele");
+                    if (checkEraseClientConditions(clientId))
+                    {
+                        deleteClient();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não é possível excluir esse cliente. Por favor, verifique se não há nenhuma venda realizada a ele");
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Selecione o cliente que você quer excluir");
+            }
+            
+        }
+
+        private void deleteClient()
+        {
+            int clientId = getClientIdByClientName(listView1.SelectedItems[0].SubItems[0].Text);
+
+            ClassDeleteClient dl = new ClassDeleteClient(clientId);
+            System.Diagnostics.Debug.WriteLine(dl.getMessage());
+            loadListViewItems(null);
+        }
+
+        private int getClientIdByClientName(string clientName)
+        {
+            for(int i = 0; i < this.clients.names.Length; i++){
+                if (this.clients.names[i] == clientName)
+                {
+                    return this.clients.ids[i];
+                }
+            }
+            return 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -245,9 +279,19 @@ namespace Gerenciador_vitural_de_estoque
             return null;
         }
 
-        private bool checkEraseClientConditions()
+        private bool checkEraseClientConditions(int cliendId)
         {
-            return false;
+            ClassConsultSales sales = new ClassConsultSales();
+            
+            for(int i = 0; i < sales.productsSold.Length; i++)
+            {
+                if (int.Parse(sales.clientId[i]) == cliendId)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
