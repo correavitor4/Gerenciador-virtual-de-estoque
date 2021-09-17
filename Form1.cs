@@ -83,7 +83,7 @@ namespace Gerenciador_vitural_de_estoque
                     reduceButton1();
                     reduceButton2();
                     reduceButton3();
-                    reduceButton4();
+                    
 
                 }
                 else
@@ -92,7 +92,7 @@ namespace Gerenciador_vitural_de_estoque
                     restoreButton1();
                     restoreButton2();
                     restoreButton3();
-                    restoreButton4();
+                    
             }
 
             
@@ -150,23 +150,9 @@ namespace Gerenciador_vitural_de_estoque
             button3Reduced = false;
         }
 
-        private void reduceButton4()
-        {
-            button4.Text = "";
-            //Bitmap b = new Bitmap("Resources\icon_products.png");
-            var bmp = new Bitmap(Properties.Resources.providers_icon);
-            button4.BackgroundImage = bmp;
-            button4.BackgroundImageLayout = ImageLayout.Stretch;
-            button4Reduced = true;
-        }
+        
 
-        private void restoreButton4()
-        {
-            button4.BackgroundImage = null;
-            button4.Text = "FORNECEDORES";
-            button4Reduced = false;
-        }
-
+        
 
         #endregion
 
